@@ -1,0 +1,822 @@
+<html lang="id"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Aplikasi Administrasi Guru dan Wali Murid TK ABA Berua</title>
+<style>
+:root{--green:#16845b;--deep:#10543f;--mint:#e7f8ef;--lime:#c8f169;--ink:#17372c;--muted:#6c8178;--line:#dcebe3;--white:#fff;--shadow:0 16px 45px #154a3212}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(130deg,#f6fff9 0%,#f4f8ff 48%,#fff8ed 100%);min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:10px 14px;background:var(--green);color:white;font-weight:700;transition:.22s}button:hover{transform:translateY(-1px);filter:brightness(1.04)}button.secondary{background:#eaf6ef;color:var(--deep)}button.danger{background:#fff0ee;color:#b33b32}button.ghost{background:transparent;color:var(--deep);border:1px solid var(--line)}input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);outline:none}input:focus,select:focus,textarea:focus{border-color:#55bd8d;box-shadow:0 0 0 3px #55bd8d22}label{font-size:12px;font-weight:800;color:#587468;display:block;margin:0 0 6px}.field{margin-bottom:12px}.hidden{display:none!important}.muted{color:var(--muted)}.small{font-size:12px}.pill{display:inline-block;padding:5px 9px;border-radius:30px;background:var(--mint);color:var(--deep);font-size:11px;font-weight:800}.login-wrap{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;padding:22px;gap:22px}.hero{border-radius:28px;padding:clamp(26px,5vw,64px);background:radial-gradient(circle at 85% 15%,#d6f88a 0 8%,transparent 9%),radial-gradient(circle at 10% 90%,#9ce7c3 0 12%,transparent 13%),linear-gradient(145deg,#0e6448,#13845c 58%,#4bb77e);color:white;display:flex;flex-direction:column;justify-content:space-between;min-height:600px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:330px;height:330px;border:1px solid #ffffff38;border-radius:50%;right:-120px;bottom:-110px;box-shadow:0 0 0 32px #ffffff09,0 0 0 65px #ffffff08}.brand{display:flex;gap:12px;align-items:center}.logo{width:54px;height:54px;border-radius:17px;background:#ffffff20;border:1px solid #ffffff4d;display:grid;place-items:center;font-size:26px;overflow:hidden}.logo img{width:100%;height:100%;object-fit:cover}.hero h1{font-size:clamp(28px,4vw,52px);line-height:1.08;max-width:680px;letter-spacing:-1.7px;margin:28px 0 18px}.hero p{line-height:1.7;color:#e0f8e9;max-width:520px}.hero-stat{display:flex;gap:12px;flex-wrap:wrap;margin-top:35px}.hero-stat div{padding:15px 18px;border-radius:17px;background:#ffffff17;border:1px solid #ffffff28;backdrop-filter:blur(8px)}.hero-stat b{display:block;font-size:22px}.login-card{align-self:center;max-width:520px;width:100%;margin:auto;padding:clamp(24px,4vw,44px);background:#ffffffed;border:1px solid #fff;border-radius:28px;box-shadow:var(--shadow);animation:rise .55s ease}.login-card h2{margin:8px 0;font-size:29px;letter-spacing:-.8px}.role-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:6px;background:#f0f7f2;border-radius:14px;margin:24px 0}.role-tabs button{padding:10px 5px;font-size:12px;background:transparent;color:#6b8176}.role-tabs button.active{background:white;color:var(--deep);box-shadow:0 4px 14px #0e57321a}.login-note{padding:12px;border-radius:12px;background:#f5faf6;font-size:12px;line-height:1.5;color:#5f786a;margin-top:15px}.app{display:none;min-height:100vh}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:#ffffffd9;backdrop-filter:blur(18px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.top-brand{display:flex;gap:10px;align-items:center;font-weight:900}.top-brand .logo{width:43px;height:43px;border-radius:13px;background:var(--mint);color:var(--green);border:0}.top-brand span{display:block;font-size:11px;color:var(--muted);font-weight:600}.top-actions{display:flex;gap:10px;align-items:center}.layout{display:grid;grid-template-columns:245px 1fr;min-height:calc(100vh - 76px)}.sidebar{padding:22px 14px;border-right:1px solid var(--line);background:#ffffff91}.side-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:900;color:#91a69b;padding:12px}.nav{display:flex;flex-direction:column;gap:5px}.nav button{display:flex;gap:12px;align-items:center;text-align:left;background:transparent;color:#5a7567;padding:12px 14px;font-size:13px}.nav button.active,.nav button:hover{background:#e9f8ef;color:#126346}.nav .ico{width:22px;text-align:center;font-size:16px}.side-bottom{margin-top:28px;padding:14px;background:linear-gradient(140deg,#e8f9ee,#f3f8ff);border-radius:16px;font-size:12px;line-height:1.5}.main{padding:clamp(18px,3vw,34px);max-width:1600px;width:100%;margin:0 auto;min-width:0}.page-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:22px}.page-head h2{font-size:clamp(23px,3vw,31px);letter-spacing:-.8px;margin:0 0 6px}.page-head p{margin:0;color:var(--muted);font-size:13px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}.stat-card,.panel{background:#ffffffde;border:1px solid #fff;border-radius:20px;box-shadow:var(--shadow);padding:20px;min-width:0}.stat-card{position:relative;overflow:hidden}.stat-card:after{content:"";position:absolute;right:-22px;top:-25px;width:85px;height:85px;border-radius:50%;background:var(--orb,#dcf8e8)}.stat-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}.stat-icon{width:40px;height:40px;border-radius:13px;background:var(--orb,#dcf8e8);display:grid;place-items:center;font-size:19px}.stat-num{font-size:32px;font-weight:900;letter-spacing:-1px;margin:15px 0 4px}.stat-label{font-size:12px;color:var(--muted);font-weight:700}.two-col{display:grid;grid-template-columns:1.25fr .75fr;gap:16px}.panel{margin-bottom:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}.panel-head h3{margin:0;font-size:16px}.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{padding:15px 12px;text-align:left;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:15px}.quick span{display:block;font-size:23px;margin-bottom:9px}.quick b{font-size:12px;display:block}.quick small{color:var(--muted);font-size:10px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:13px}table{width:100%;border-collapse:collapse;min-width:540px;background:white}th,td{padding:11px 12px;text-align:left;border-bottom:1px solid #edf3ef;font-size:12px}th{background:#f3faf5;color:#567568;font-size:10px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}tr:last-child td{border-bottom:0}.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:7px 9px;font-size:11px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-grid .full{grid-column:1/-1}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.toolbar input,.toolbar select{width:auto;min-width:160px}.notice{padding:13px 15px;border-radius:13px;background:#f0faf4;border:1px solid #d9f1e2;font-size:12px;line-height:1.5;margin-bottom:15px}.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(24px,1fr));gap:4px}.day-cell{font-size:11px;padding:8px 2px;text-align:center;border-radius:8px;background:#f2f8f4}.day-cell.head{background:#e4f4e9;font-weight:900}.day-cell.today{background:#18845a;color:white;font-weight:900}.login-modal{max-width:440px}.badge{padding:4px 8px;border-radius:30px;font-size:10px;font-weight:900;background:#eef8f1;color:#20714e}.badge.warn{background:#fff4df;color:#94630c}.badge.red{background:#ffeded;color:#ae3838}.empty{text-align:center;padding:30px;color:#82978c;font-size:13px}.toast{position:fixed;right:20px;bottom:20px;padding:13px 18px;background:#123f2e;color:white;border-radius:13px;box-shadow:var(--shadow);z-index:20;animation:rise .2s ease;max-width:90vw}.modal-back{position:fixed;inset:0;background:#123d2e77;backdrop-filter:blur(5px);z-index:10;display:grid;place-items:center;padding:18px}.modal{background:#fff;border-radius:22px;padding:25px;max-width:620px;width:100%;max-height:90vh;overflow:auto;box-shadow:0 30px 90px #123d2e45;animation:rise .25s ease}.modal h3{margin-top:0}.progress{height:8px;background:#e9f1ec;border-radius:9px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,#23a16d,#c2e96b);border-radius:9px}.video-card{padding:13px;background:#f7fbf8;border-radius:13px;margin:9px 0;border:1px solid var(--line)}video{width:100%;max-height:260px;border-radius:12px;background:#142c22}.footer-note{font-size:11px;color:#81958a;text-align:center;padding:20px}@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes float{50%{transform:translateY(-4px)}}
+@media(max-width:1050px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:205px 1fr}.two-col{grid-template-columns:1fr}}@media(max-width:720px){.login-wrap{grid-template-columns:1fr;padding:12px}.hero{min-height:360px;padding:26px}.hero h1{font-size:31px}.hero-stat{margin-top:15px}.login-card{margin:0 auto 15px}.topbar{height:auto;min-height:68px;padding:12px 14px}.top-brand div:last-child{max-width:200px;font-size:12px}.top-actions .user-label{display:none}.layout{display:block}.sidebar{padding:8px;border-right:0;border-bottom:1px solid var(--line);overflow:auto}.side-label,.side-bottom{display:none}.nav{flex-direction:row;width:max-content}.nav button{padding:9px 12px;white-space:nowrap}.main{padding:15px}.cards{gap:9px}.stat-card{padding:14px}.stat-num{font-size:27px}.quick-grid{grid-template-columns:repeat(2,1fr)}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.page-head{flex-direction:column}.top-brand span{display:none}}@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.parent-wa-float{position:fixed;right:22px;bottom:22px;z-index:9;display:flex;align-items:center;gap:9px;padding:12px 17px;border-radius:999px;background:#20b866;color:#fff;text-decoration:none;font-size:13px;font-weight:850;box-shadow:0 10px 30px #12633c40;transition:transform .2s,box-shadow .2s;animation:rise .35s ease}.parent-wa-float:hover{transform:translateY(-3px);box-shadow:0 14px 34px #12633c50}.parent-wa-icon{width:25px;height:25px;border-radius:50%;background:#ffffff28;display:grid;place-items:center;font-size:19px;line-height:1}.parent-wa-float.is-disabled{background:#71847a;cursor:pointer}@media(max-width:720px){.parent-wa-float{right:14px;bottom:14px;padding:11px 13px}.parent-wa-text{font-size:12px}}
+</style><style id="schoolMarqueeStyle">@keyframes schoolMarquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}</style></head><body>
+<div id="loginScreen" class="login-wrap"><section class="hero"><div><div class="brand"><div class="logo" id="heroLogo">🌱</div><div><b id="heroBrand">TK AISYIYAH BUSTANUL ATHFAL BERUA</b><div class="small" style="color:#d9f6e5;margin-top:4px">Administrasi sekolah terpadu</div></div></div><h1>SELAMAT DATANG DI SEKOLAH TK AISYIYAH BUSTANUL ATHFAL BERUA</h1><p>Ruang digital yang ramah untuk guru dan wali murid. Pantau kehadiran, tumbuh kembang, dan aktivitas belajar anak dalam satu tempat.</p></div><div class="hero-stat"><div><b>📚</b><span class="small">Administrasi kelas</span></div><div><b>🌿</b><span class="small">Tumbuh kembang anak</span></div><div><b>🤝</b><span class="small">Kolaborasi keluarga</span></div></div></section><section class="login-card"><span class="pill">PORTAL SEKOLAH</span><h2>Masuk ke aplikasi</h2><p class="muted" style="font-size:13px">Pilih jenis akun untuk melanjutkan.</p><div class="role-tabs"><button class="active" data-role="operator" onclick="setRole('operator',this)">⚙ Operator</button><button data-role="guru" onclick="setRole('guru',this)">👩&zwj;🏫 Guru</button><button data-role="wali" onclick="setRole('wali',this)">👨&zwj;👩&zwj;👧 Wali Murid</button></div><form id="loginForm"><div id="nameField" class="field hidden"><label id="nameLabel">Nama</label><input id="loginName" placeholder="Masukkan nama" autocomplete="username"></div><div class="field"><label for="loginPassword">Kata sandi</label><input id="loginPassword" type="password" placeholder="Masukkan kata sandi" required="" autocomplete="current-password"></div><button style="width:100%;padding:13px" type="submit">Masuk ke aplikasi →</button></form><div class="login-note" id="loginHelp">Akun operator mengelola pengaturan dan administrasi sekolah.</div><p class="small muted" style="margin-top:20px">© TK Aisyiyah Bustanul Athfal Berua</p></section></div>
+<div id="app" class="app"><header class="topbar"><div class="top-brand"><div class="logo" id="appLogo">🌱</div><div><b id="appTitle">ADMINISTRASI TK ABA BERUA</b><span id="appSubtitle">Portal sekolah terpadu</span></div></div><div class="top-actions"><span class="pill user-label" id="userRoleLabel">OPERATOR</span><b class="user-label" id="userNameLabel" style="font-size:12px"></b><button class="secondary" onclick="openPassword()">🔐 Ubah sandi</button><button class="ghost" onclick="logout()">Keluar ↗</button></div></header><div class="layout"><aside class="sidebar"><div class="side-label">MENU UTAMA</div><nav id="nav" class="nav"></nav><div class="side-bottom"><b>🌱 Tumbuh bersama</b><br>Kolaborasi guru dan keluarga mendukung perkembangan setiap anak.</div></aside><main class="main" id="main"></main></div></div><div id="modalRoot"></div><div id="toastRoot"></div>
+<script>
+const STORE='tkaba_berua_v1';let db=loadDB(),role='operator',user=null,currentPage='dashboard',calendarVisible=true,selectedClass='A',editingStudent=null,logoData='';
+function loadDB(){try{return JSON.parse(localStorage.getItem(STORE))||fresh()}catch(e){return fresh()}}function fresh(){return {settings:{title:'APLIKASI ADMINISTRASI GURU DAN WALI MURID TK AISYIYAH BUSTANUL ATHFAL BERUA',logo:'',menuNames:{dashboard:'Dashboard',students:'Data Murid',attendance:'Absensi Murid',grades:'Nilai Murid',report:'Rekap Nilai',teacherAttendance:'Absen Guru',journal:'Jurnal Guru',videos:'Video Kegiatan',teachers:'Data Guru',settings:'Pengaturan'}},teachers:[{name:'Guru',password:'guru123',bio:'Guru TK ABA Berua',class:'A'}],students:[],attendance:{},grades:{},teacherAttendance:[],journals:[],videos:[],approved:{},parentsPasswords:{},menusEnabled:{},monthly:{}}}function save(){localStorage.setItem(STORE,JSON.stringify(db))}function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function toast(s){document.getElementById('toastRoot').innerHTML='<div class="toast">'+esc(s)+'</div>';setTimeout(()=>document.getElementById('toastRoot').innerHTML='',3000)}function setRole(r,el){role=r;document.querySelectorAll('.role-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.role===r));let nf=document.getElementById('nameField'),lab=document.getElementById('nameLabel'),help=document.getElementById('loginHelp'),pass=document.getElementById('loginPassword');nf.classList.toggle('hidden',r==='operator');document.getElementById('loginName').required=r!=='operator';lab.textContent=r==='guru'?'Nama guru':'Nama wali murid';document.getElementById('loginName').placeholder=r==='guru'?'Masukkan nama guru':'Masukkan nama wali murid';pass.value='';help.textContent=r==='operator'?'Akun operator mengelola pengaturan dan administrasi sekolah.':r==='guru'?'Masuk menggunakan nama guru yang terdaftar dan kata sandi pribadi.':'Masuk menggunakan nama wali murid yang terhubung dengan data anak. Kata sandi awal: Wali murid.'}
+document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();let name=document.getElementById('loginName').value.trim(),pw=document.getElementById('loginPassword').value;if(role==='operator'){if(pw!=='123456'){toast('Kata sandi operator tidak sesuai.');return}user={role:'operator',name:'Operator'}}else if(role==='guru'){let t=db.teachers.find(t=>t.name.toLowerCase()===name.toLowerCase());if(!t||t.password!==pw){toast('Nama guru atau kata sandi tidak sesuai.');return}user={role:'guru',name:t.name,class:t.class||'A'}}else{let child=db.students.find(s=>[s.guardian,s.father,s.mother].filter(Boolean).some(n=>n.toLowerCase()===name.toLowerCase()));if(!child){toast('Nama wali belum terhubung dengan data murid. Hubungi operator.');return}let saved=db.parentsPasswords[name.toLowerCase()]||'Wali murid';if(pw!==saved){toast('Kata sandi wali murid tidak sesuai.');return}user={role:'wali',name,childId:child.id}}document.getElementById('loginScreen').style.display='none';document.getElementById('app').style.display='block';document.getElementById('userRoleLabel').textContent=user.role.toUpperCase();document.getElementById('userNameLabel').textContent=user.name;syncLogo();buildNav();go(user.role==='wali'?'parent':'dashboard')});function logout(){user=null;document.getElementById('app').style.display='none';document.getElementById('loginScreen').style.display='grid';document.getElementById('loginPassword').value=''}
+const navItems=[['dashboard','▦','Dashboard',['operator','guru']],['students','👧','Data Murid',['operator','guru']],['attendance','✓','Absensi Murid',['operator','guru']],['grades','★','Nilai Murid',['operator','guru']],['report','▤','Rekap Nilai',['operator','guru']],['teacherAttendance','◷','Absen Guru',['operator','guru']],['journal','✎','Jurnal Guru',['operator','guru']],['videos','▶','Video Kegiatan',['operator','guru']],['teachers','♙','Data Guru',['operator']],['settings','⚙','Pengaturan',['operator']],['parent','♡','Portal Wali Murid',['wali']]];function buildNav(){let items=navItems.filter(x=>x[3].includes(user.role)&& (user.role==='operator'||db.menusEnabled[x[0]]!==false));document.getElementById('nav').innerHTML=items.map(x=>`<button class="${currentPage===x[0]?'active':''}" onclick="go('${x[0]}')"><span class="ico">${x[1]}</span>${esc(db.settings.menuNames[x[0]]||x[2])}</button>`).join('')}function go(p){currentPage=p;buildNav();render()}function syncLogo(){let html=db.settings.logo?`<img src="${db.settings.logo}">`:'🌱';['heroLogo','appLogo'].forEach(id=>{let el=document.getElementById(id);if(el)el.innerHTML=html});document.getElementById('appTitle').textContent=db.settings.title.replace('APLIKASI ADMINISTRASI GURU DAN WALI MURID ','').slice(0,40)}function pageHead(title,sub,actions=''){return `<div class="page-head"><div><h2>${title}</h2><p>${sub}</p></div>${actions}</div>`}function panel(title,body,extra=''){return `<section class="panel"><div class="panel-head"><h3>${title}</h3>${extra}</div>${body}</section>`}function stat(icon,num,label,color){return `<div class="stat-card" style="--orb:${color}"><div class="stat-top"><span class="stat-label">${label}</span><span class="stat-icon">${icon}</span></div><div class="stat-num">${num}</div></div>`}function render(){let main=document.getElementById('main');if(!user)return;let pages={dashboard:dashboardPage,students:studentsPage,attendance:attendancePage,grades:gradesPage,report:reportPage,teacherAttendance:teacherAttendancePage,journal:journalPage,videos:videosPage,teachers:teachersPage,settings:settingsPage,parent:parentPage};main.innerHTML=(pages[currentPage]||dashboardPage)();wirePage()}
+function dashboardPage(){let present=Object.values(db.attendance).flat().filter(a=>a.date===today()&&a.status==='H').length;let pct=db.students.length?Math.round(present/db.students.length*100):0;let studentRows=sortStudents(db.students).slice(0,5).map(s=>`<tr><td><b>${esc(s.name)}</b></td><td>Kelompok ${s.class}</td><td>${esc(s.phone)}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Belum ada data murid.</td></tr>';return pageHead('Selamat datang, '+esc(user.name)+' 👋','Ringkasan administrasi TK Aisyiyah Bustanul Athfal Berua')+`<div class="cards">${stat('👧',db.students.length,'Jumlah murid','#dcf8e8')}${stat('👩&zwj;🏫',db.teachers.length,'Guru terdaftar','#e8e8ff')}${stat('✓',pct+'%','Kehadiran hari ini','#fff0c9')}${stat('▶',db.videos.length,'Video kegiatan','#ffe5ed')}</div><div class="two-col">${panel('Akses cepat',`<div class="quick-grid"><button class="quick" onclick="go('students')"><span>👧</span><b>Data Murid</b><small>Kelola daftar siswa</small></button><button class="quick" onclick="go('attendance')"><span>✓</span><b>Absensi Murid</b><small>Catat kehadiran</small></button><button class="quick" onclick="go('grades')"><span>★</span><b>Nilai Murid</b><small>Penilaian bulanan & MID</small></button><button class="quick" onclick="go('journal')"><span>✎</span><b>Jurnal Guru</b><small>Catatan kegiatan kelas</small></button><button class="quick" onclick="go('videos')"><span>▶</span><b>Video Kegiatan</b><small>Aktivitas dari rumah</small></button><button class="quick" onclick="go('report')"><span>▤</span><b>Rekap Nilai</b><small>Unduh laporan</small></button></div>`)}${panel('Profil singkat',`<div style="display:flex;gap:14px;align-items:center"><div class="stat-icon" style="width:60px;height:60px;font-size:27px">${user.role==='operator'?'⚙':'👩&zwj;🏫'}</div><div><b>${esc(user.name)}</b><div class="muted small" style="margin-top:5px">${user.role==='operator'?'Pengelola administrasi sekolah':user.role==='guru'?'Guru · Kelompok '+user.class:'Wali murid'}</div><span class="pill" style="margin-top:8px">Akun aktif</span></div></div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="muted small">Gunakan menu di samping untuk mengakses administrasi kelas dan memantau perkembangan anak.</div>`)}</div>${panel('Murid terbaru',`<div class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Kelompok</th><th>No. wali</th></tr></thead><tbody>${studentRows}</tbody></table></div>`)}`}
+function sortStudents(a){return [...a].sort((x,y)=>x.name.localeCompare(y.name,'id',{sensitivity:'base'}))}function today(){return new Date().toISOString().slice(0,10)}function studentClassSelect(){return `<select id="studentClass"><option value="A">Kelompok A</option><option value="B">Kelompok B</option><option value="C">Kelompok C</option></select>`}function studentsPage(){let c=selectedClass;let rows=sortStudents(db.students.filter(s=>s.class===c)).map((s,i)=>`<tr><td>${i+1}</td><td><b>${esc(s.name)}</b></td><td>${esc(s.gender)}</td><td>${esc(s.father||'—')}</td><td>${esc(s.mother||'—')}</td><td>${esc(s.phone)}</td><td>${user.role==='operator'?`<div class="actions"><button class="secondary" onclick="editStudent('${s.id}')">Edit</button><button class="danger" onclick="deleteStudent('${s.id}')">Hapus</button></div>`:'<span class="badge">Lihat saja</span>'}</td></tr>`).join('')||`<tr><td colspan="7" class="empty">Belum ada murid di Kelompok ${c}.</td></tr>`;return pageHead('Data Murid','Daftar murid dikelompokkan dan diurutkan berdasarkan abjad.',user.role==='operator'?'<button onclick="studentForm()">＋ Tambah murid</button>':'')+`<div class="toolbar"><label style="margin:0">Pilih kelompok</label><select id="classFilter" onchange="selectedClass=this.value;render()"><option ${c==='A'?'selected':''} value="A">Kelompok A</option><option ${c==='B'?'selected':''} value="B">Kelompok B</option><option ${c==='C'?'selected':''} value="C">Kelompok C</option></select><input id="studentSearch" placeholder="Cari nama murid…" oninput="filterTable(this.value)"></div>${panel('Daftar Kelompok '+c,`<div class="table-wrap"><table id="studentTable"><thead><tr><th>No.</th><th>Nama murid</th><th>Jenis kelamin</th><th>Ayah</th><th>Ibu</th><th>No. HP wali</th><th>Aksi</th></tr></thead><tbody>${rows}</tbody></table></div><p class="small muted">Jumlah murid kelompok ${c}: ${db.students.filter(s=>s.class===c).length}</p>`)}`}
+function filterTable(q){document.querySelectorAll('#studentTable tbody tr').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q.toLowerCase())?'':'none')}function studentForm(id){if(user.role!=='operator')return;let s=id?db.students.find(x=>x.id===id):{};document.getElementById('modalRoot').innerHTML=`<div class="modal-back" onclick="if(event.target===this)closeModal()"><div class="modal"><h3>${id?'Edit data murid':'Tambah murid baru'}</h3><form id="studentForm"><div class="form-grid"><div class="field full"><label>Nama lengkap murid *</label><input name="name" value="${esc(s.name||'')}" required></div><div class="field"><label>Jenis kelamin *</label><select name="gender" required><option value="">Pilih</option><option ${s.gender==='Perempuan'?'selected':''}>Perempuan</option><option ${s.gender==='Laki-laki'?'selected':''}>Laki-laki</option></select></div><div class="field"><label>Kelompok *</label><select name="class"><option ${s.class==='A'?'selected':''}>A</option><option ${s.class==='B'?'selected':''}>B</option><option ${s.class==='C'?'selected':''}>C</option></select></div><div class="field"><label>Nama ayah</label><input name="father" value="${esc(s.father||'')}"></div><div class="field"><label>Pekerjaan ayah</label><input name="fatherJob" value="${esc(s.fatherJob||'')}"></div><div class="field"><label>Nama ibu</label><input name="mother" value="${esc(s.mother||'')}"></div><div class="field"><label>Pekerjaan ibu</label><input name="motherJob" value="${esc(s.motherJob||'')}"></div><div class="field"><label>Nama wali murid (akun)</label><input name="guardian" value="${esc(s.guardian||'')}"></div><div class="field"><label>Nomor HP wali murid *</label><input name="phone" value="${esc(s.phone||'')}" required></div></div><div class="actions"><button type="submit">Simpan data</button><button type="button" class="secondary" onclick="closeModal()">Batal</button></div></form></div></div>`;document.getElementById('studentForm').onsubmit=e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target));if(id)Object.assign(s,f);else db.students.push({id:crypto.randomUUID(),...f});save();closeModal();render();toast('Data murid berhasil disimpan.') }}function editStudent(id){studentForm(id)}function deleteStudent(id){if(user.role!=='operator')return;if(confirm('Hapus data murid ini?')){db.students=db.students.filter(s=>s.id!==id);save();render();toast('Data murid dihapus.')}}function closeModal(){document.getElementById('modalRoot').innerHTML=''}
+function attendancePage(){let date=document.getElementById('attDate')?.value||today(),c=selectedClass;let students=sortStudents(db.students.filter(s=>s.class===c));let key=date+'|'+c;let vals=db.attendance[key]||{};let rows=students.map(s=>`<tr><td>${esc(s.name)}</td><td><select data-att="${s.id}"><option value="H" ${(vals[s.id]||'H')==='H'?'selected':''}>H — Hadir</option><option value="S" ${vals[s.id]==='S'?'selected':''}>S — Sakit</option><option value="I" ${vals[s.id]==='I'?'selected':''}>I — Izin</option><option value="A" ${vals[s.id]==='A'?'selected':''}>A — Alpa</option></select></td></tr>`).join('')||'<tr><td colspan="2" class="empty">Tambahkan data murid terlebih dahulu.</td></tr>';return pageHead('Absensi Murid','Catat kehadiran dan lihat rekap bulanan per kelompok.')+`<div class="toolbar"><select id="attClass" onchange="selectedClass=this.value;render()"><option value="A" ${c==='A'?'selected':''}>Kelompok A</option><option value="B" ${c==='B'?'selected':''}>Kelompok B</option><option value="C" ${c==='C'?'selected':''}>Kelompok C</option></select><input id="attDate" type="date" value="${date}" onchange="render()"><button class="secondary" onclick="calendarVisible=!calendarVisible;render()">${calendarVisible?'Sembunyikan kalender':'Tampilkan kalender'}</button><button onclick="saveAttendance()">Simpan absensi</button></div>${calendarVisible?panel('Kalender kecil · '+new Date(date+'T12:00:00').toLocaleDateString('id-ID',{month:'long',year:'numeric'}),calendarHtml(date)):''}${panel('Absensi Kelompok '+c,`<div class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Status kehadiran</th></tr></thead><tbody>${rows}</tbody></table></div>`)}${panel('Rekap absensi bulanan',monthlyAttendance(c,date))}`}
+function calendarHtml(date){let d=new Date(date+'T12:00:00'),y=d.getFullYear(),m=d.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),html=['Min','Sen','Sel','Rab','Kam','Jum','Sab'].map(x=>`<div class="day-cell head">${x}</div>`).join('');for(let i=0;i<first;i++)html+='<div></div>';for(let i=1;i<=days;i++)html+=`<div class="day-cell ${i===d.getDate()?'today':''}">${i}</div>`;return `<div style="max-width:430px">${html='<div class="calendar-grid">'+html+'</div>'}</div>`}function saveAttendance(){let date=document.getElementById('attDate')?.value||today(),c=selectedClass,key=date+'|'+c;db.attendance[key]=db.attendance[key]||{};document.querySelectorAll('[data-att]').forEach(el=>db.attendance[key][el.dataset.att]=el.value);save();render();toast('Absensi tersimpan.')}function monthlyAttendance(c,date){let ym=date.slice(0,7),students=sortStudents(db.students.filter(s=>s.class===c));return `<div class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Hadir (H)</th><th>Sakit (S)</th><th>Izin (I)</th><th>Alpa (A)</th></tr></thead><tbody>${students.map(s=>{let counts={H:0,S:0,I:0,A:0};Object.entries(db.attendance).forEach(([k,v])=>{if(k.startsWith(ym)&&k.endsWith('|'+c)&&v[s.id])counts[v[s.id]]++});return `<tr><td>${esc(s.name)}</td><td>${counts.H}</td><td>${counts.S}</td><td>${counts.I}</td><td>${counts.A}</td></tr>`}).join('')||'<tr><td colspan="5" class="empty">Belum ada data.</td></tr>'}</tbody></table></div>`}
+let domains=['A. Pengembangan Alislam, Ke’Aisyiyahan dan Kemuhammadiyahan (AIK)','B. Nilai Agama dan Budi Pekerti','C. Jati Diri','D. Dasar-dasar Literasi, Matematika, Sains, Teknologi, Rekayasa, Seni','E. Projek Penguatan Profil Pelajar Pancasila (P5)']; db.subjects = Array.isArray(db.subjects) && db.subjects.length ? db.subjects : [...domains]; domains = [...db.subjects];function gradesPage(){let c=selectedClass,students=sortStudents(db.students.filter(s=>s.class===c)),sid=document.getElementById('gradeStudent')?.value||students[0]?.id||'',term=document.getElementById('gradeTerm')?.value||'Bulan 1';let s=students.find(x=>x.id===sid)||students[0],record=s?db.grades[s.id]||{}:{};let body=s?`<div class="toolbar"><label style="margin:0">Murid</label><select id="gradeStudent" onchange="render()">${students.map(x=>`<option value="${x.id}" ${x.id===s.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select><label style="margin:0">Penilaian</label><select id="gradeTerm" onchange="render()">${['Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2'].map(x=>`<option ${x===term?'selected':''}>${x}</option>`).join('')}</select></div><form id="gradeForm"><div class="form-grid">${term.startsWith('Bulan')?`<div class="field"><label>Nilai angka</label><input name="score" type="number" min="0" max="100" value="${esc(record[term]?.score||'')}"></div><div class="field"><label>Uraian</label><select name="desc"><option>Cukup</option><option ${record[term]?.desc==='Baik'?'selected':''}>Baik</option><option ${record[term]?.desc==='Bagus'?'selected':''}>Bagus</option></select></div><div class="field full"><label>Catatan perkembangan</label><textarea name="narrative">${esc(record[term]?.narrative||'')}</textarea></div>`:domains.map((d,i)=>`<div class="field full"><label>${d}</label><div class="form-grid"><div class="field"><label>Nilai angka</label><input name="score${i}" type="number" min="0" max="100" value="${esc(record[term]?.domains?.[i]?.score||'')}"></div><div class="field"><label>Uraian perkembangan</label><textarea name="desc${i}">${esc(record[term]?.domains?.[i]?.desc||'')}</textarea></div><div class="field"><label>Dokumen PDF (opsional)</label><input type="file" name="pdf${i}" accept="application/pdf"></div><div class="field"><label>Dokumentasi kegiatan (gambar/video)</label><input type="file" name="media${i}" accept="image/*,video/*"></div></div></div>`).join('')}</div><div class="actions"><button type="submit">Simpan nilai</button><button type="button" class="secondary" onclick="approveGrade('${s.id}','${term}')">${db.approved[s.id+'|'+term]?'✓ Sudah disetujui':'Setujui & tampilkan ke wali'}</button></div></form><p class="small muted">Nilai yang disetujui dapat dilihat oleh wali murid terkait.</p>`:'<div class="empty">Tambahkan murid terlebih dahulu.</div>';return pageHead('Nilai Murid','Input nilai bulanan, MID 1 dan MID 2 beserta uraian perkembangan.')+`<div class="toolbar"><select onchange="selectedClass=this.value;render()"><option value="A" ${c==='A'?'selected':''}>Kelompok A</option><option value="B" ${c==='B'?'selected':''}>Kelompok B</option><option value="C" ${c==='C'?'selected':''}>Kelompok C</option></select></div>${panel('Formulir penilaian',body)}`}
+async function fileData(file){if(!file)return '';if(file.size>5*1024*1024)throw Error('Ukuran file maksimal 5 MB');return await new Promise((res,rej)=>{let r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(file)})}function wirePage(){let gf=document.getElementById('gradeForm');if(gf)gf.onsubmit=async e=>{e.preventDefault();let sid=document.getElementById('gradeStudent').value,term=document.getElementById('gradeTerm').value,f=e.target,rec=db.grades[sid]||{};rec[term]=rec[term]||{};try{if(term.startsWith('Bulan'))rec[term]={score:f.score.value,desc:f.desc.value,narrative:f.narrative.value};else{rec[term].domains=[];for(let i=0;i<5;i++){rec[term].domains.push({score:f['score'+i].value,desc:f['desc'+i].value,pdf:await fileData(f['pdf'+i].files[0]),media:await fileData(f['media'+i].files[0])})}}db.grades[sid]=rec;save();toast('Nilai berhasil disimpan.');render()}catch(err){toast(err.message||'File gagal dibaca.')}}}
+function approveGrade(sid,term){if(user.role!=='operator'&&user.role!=='guru')return;db.approved[sid+'|'+term]=!db.approved[sid+'|'+term];save();render();toast(db.approved[sid+'|'+term]?'Nilai disetujui dan ditampilkan kepada wali.':'Persetujuan dibatalkan.')}function reportPage(){let rows=sortStudents(db.students).map(s=>{let g=db.grades[s.id]||{};return `<tr><td>${esc(s.name)}</td><td>${s.class}</td>${['Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2'].map(t=>`<td>${esc(g[t]?.score||avgDomains(g[t])||'—')}</td>`).join('')}</tr>`}).join('')||'<tr><td colspan="7" class="empty">Belum ada data nilai.</td></tr>';return pageHead('Rekap Nilai Semua Murid','Ringkasan nilai bulanan dan MID. Ekspor hanya memuat data nilai.','<button onclick="exportGrades()">↓ Unduh CSV</button> <button class="secondary" onclick="printGrades()">PDF / Cetak</button>')+panel('Rekap nilai',`<div class="toolbar"><button class="secondary" onclick="sendSpreadsheet()">↗ Kirim ke Google Spreadsheet</button></div><div id="gradePrint" class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Kelompok</th><th>Bulan 1</th><th>Bulan 2</th><th>Bulan 3</th><th>MID 1</th><th>MID 2</th></tr></thead><tbody>${rows}</tbody></table></div><p class="small muted">MID menampilkan ringkasan rata-rata angka dari lima domain.</p>`)}function avgDomains(t){if(!t?.domains)return '';let a=t.domains.map(x=>Number(x.score)).filter(Number.isFinite);return a.length?Math.round(a.reduce((x,y)=>x+y,0)/a.length):''}function exportGrades(){let lines=[['Nama murid','Kelompok','Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2']];sortStudents(db.students).forEach(s=>{let g=db.grades[s.id]||{};lines.push([s.name,s.class,g['Bulan 1']?.score||'',g['Bulan 2']?.score||'',g['Bulan 3']?.score||'',avgDomains(g['MID 1']),avgDomains(g['MID 2'])])});download('\ufeff'+lines.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n'),'rekap_nilai_tk_aba.csv','text/csv;charset=utf-8')}function download(data,name,type){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;a.click();URL.revokeObjectURL(a.href)}function printGrades(){let table=document.getElementById('gradePrint')?.innerHTML||'';let w=window.open('','_blank');w.document.write(`<html><head><title>Rekap Nilai</title><style>body{font-family:Arial;padding:25px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #aaa;padding:8px;text-align:left;font-size:12px}h2{text-align:center}</style></head><body><h2>REKAP NILAI MURID<br>TK AISYIYAH BUSTANUL ATHFAL BERUA</h2>${table}<script>window.print()<\/script></body></html>`);w.document.close()}function sendSpreadsheet(){let url=prompt('Masukkan URL Google Apps Script Web App yang menerima data, atau kosongkan untuk mengunduh CSV:');if(!url){exportGrades();return}fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(sortStudents(db.students).map(s=>({nama:s.name,kelompok:s.class,nilai:db.grades[s.id]||{}})))}).then(()=>toast('Permintaan pengiriman sudah dilakukan. Periksa Google Spreadsheet.')).catch(()=>toast('Pengiriman gagal. Periksa URL Apps Script.'))}
+function teacherAttendancePage(){let rows=db.teacherAttendance.map((a,i)=>`<tr><td>${esc(a.date)}</td><td>${esc(a.name)}</td><td>${esc(a.status)}</td><td>${esc(a.note)}</td></tr>`).join('')||'<tr><td colspan="4" class="empty">Belum ada catatan absen guru.</td></tr>';return pageHead('Absen Guru','Catat kehadiran tenaga pendidik.')+panel('Input kehadiran',`<form id="teacherAttForm"><div class="form-grid"><div class="field"><label>Nama guru</label><select name="name">${db.teachers.map(t=>`<option>${esc(t.name)}</option>`).join('')}</select></div><div class="field"><label>Tanggal</label><input name="date" type="date" value="${today()}" required></div><div class="field"><label>Status</label><select name="status"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></div><div class="field"><label>Catatan</label><input name="note"></div></div><button>Simpan kehadiran</button></form>`)+panel('Riwayat kehadiran',`<div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Nama</th><th>Status</th><th>Catatan</th></tr></thead><tbody>${rows}</tbody></table></div>`)}function journalPage(){return pageHead('Jurnal Guru','Catatan kegiatan pembelajaran di kelas.')+panel('Tambah jurnal',`<form id="journalForm"><div class="form-grid"><div class="field"><label>Tanggal</label><input type="date" name="date" value="${today()}" required></div><div class="field"><label>Kelompok</label><select name="class"><option>A</option><option>B</option><option>C</option></select></div><div class="field full"><label>Tema / kegiatan</label><input name="title" required></div><div class="field full"><label>Uraian kegiatan dan refleksi</label><textarea name="body" rows="4" required></textarea></div></div><button>Simpan jurnal</button></form>`)+panel('Riwayat jurnal',db.journals.slice().reverse().map(j=>`<div class="video-card"><b>${esc(j.title)}</b> <span class="pill">Kelompok ${j.class}</span><p class="small muted">${esc(j.date)} · ${esc(j.teacher)}</p><p>${esc(j.body)}</p></div>`).join('')||'<div class="empty">Belum ada jurnal.</div>')}
+function videosPage(){let videos=db.videos.slice().reverse().map(v=>`<div class="video-card"><b>${esc(v.child)}</b><span class="pill">${esc(v.parent)}</span><p class="small muted">${esc(v.date)} · ${esc(v.title)}</p>${v.data?`<video controls src="${v.data}"></video>`:v.url?`<a href="${esc(v.url)}" target="_blank" rel="noopener">Lihat video</a>`:''}<p>${esc(v.note||'')}</p></div>`).join('')||'<div class="empty">Belum ada video kegiatan yang diunggah.</div>';return pageHead('Video Kegiatan Anak','Dokumentasi aktivitas anak dari rumah. Guru dapat melihat kiriman wali murid.')+ (user.role==='wali'?panel('Unggah kegiatan anak',`<form id="videoForm"><div class="form-grid"><div class="field"><label>Judul kegiatan</label><input name="title" required placeholder="Contoh: Membantu menyiram tanaman"></div><div class="field"><label>File video (maks. 5 MB)</label><input name="file" type="file" accept="video/*"></div><div class="field full"><label>Atau tautan video (mis. Google Drive)</label><input name="url" type="url" placeholder="https://..."></div><div class="field full"><label>Cerita singkat</label><textarea name="note" rows="3"></textarea></div></div><button>Kirim kegiatan ke guru</button></form>`):'')+panel('Dokumentasi kegiatan',videos)}
+function parentPage(){let s=db.students.find(x=>x.id===user.childId);if(!s)return pageHead('Portal Wali Murid','Data anak tidak ditemukan.');let g=db.grades[s.id]||{};let approved=Object.keys(db.approved).filter(k=>k.startsWith(s.id+'|')&&db.approved[k]);let gradeHtml=approved.map(k=>{let term=k.split('|')[1],r=g[term]||{};return `<div class="video-card"><b>${esc(term)}</b><span class="badge">Disetujui guru</span>${term.startsWith('Bulan')?`<p>Nilai: ${esc(r.score||'—')} · ${esc(r.desc||'')}</p><p>${esc(r.narrative||'')}</p>`:(r.domains||[]).map((d,i)=>`<p><b>${domains[i]}</b><br>Nilai: ${esc(d.score||'—')} · ${esc(d.desc||'')}</p>${d.pdf?`<a download="dokumen.pdf" href="${d.pdf}">Unduh PDF uraian</a>`:''}${d.media?`<p><a download="dokumentasi" href="${d.media}">Lihat/unduh dokumentasi</a></p>`:''}`).join('')}</div>`}).join('')||'<div class="empty">Belum ada nilai yang disetujui untuk ditampilkan.</div>';return pageHead('Portal Wali Murid','Informasi khusus anak Anda. Data murid lain tidak ditampilkan.')+`<div class="cards">${stat('👧',esc(s.name),'Nama anak','#dcf8e8')}${stat('🎒',s.class,'Kelompok','#e8e8ff')}${stat('✓',Object.keys(db.attendance).filter(k=>k.endsWith('|'+s.class)).length,'Catatan absensi kelas','#fff0c9')}${stat('★',approved.length,'Penilaian disetujui','#ffe5ed')}</div>${panel('Data anak',`<p><b>Nama:</b> ${esc(s.name)}</p><p><b>Kelompok:</b> ${esc(s.class)}</p><p><b>Jenis kelamin:</b> ${esc(s.gender)}</p><p><b>Nomor HP wali:</b> ${esc(s.phone)}</p>`)}${panel('Nilai dan perkembangan anak',gradeHtml)}${panel('Kirim kegiatan dari rumah',`<p class="muted small">Bagikan kegiatan anak agar guru dapat melihatnya di menu Video Kegiatan.</p><button onclick="go('videos')">＋ Unggah kegiatan anak</button>`)}`}
+function teachersPage(){let rows=db.teachers.map((t,i)=>`<tr><td>${esc(t.name)}</td><td>${esc(t.class||'A')}</td><td>${esc(t.bio||'')}</td><td><div class="actions"><button class="secondary" onclick="editTeacher(${i})">Edit</button><button class="danger" onclick="deleteTeacher(${i})">Hapus</button></div></td></tr>`).join('');return pageHead('Data Guru','Operator dapat menambah, mengubah, dan menghapus akun guru.','<button onclick="teacherForm()">＋ Tambah guru</button>')+panel('Daftar guru',`<div class="table-wrap"><table><thead><tr><th>Nama</th><th>Kelompok</th><th>Biodata singkat</th><th>Aksi</th></tr></thead><tbody>${rows||'<tr><td colspan="4" class="empty">Belum ada guru.</td></tr>'}</tbody></table></div>`)}function teacherForm(idx){let t=idx!==undefined?db.teachers[idx]:{};document.getElementById('modalRoot').innerHTML=`<div class="modal-back"><div class="modal"><h3>${idx!==undefined?'Edit guru':'Tambah guru'}</h3><form id="teacherForm"><div class="field"><label>Nama guru</label><input name="name" value="${esc(t.name||'')}" required></div><div class="field"><label>Kata sandi guru</label><input name="password" value="${esc(t.password||'guru123')}" required></div><div class="field"><label>Kelompok</label><select name="class"><option ${t.class==='A'?'selected':''}>A</option><option ${t.class==='B'?'selected':''}>B</option><option ${t.class==='C'?'selected':''}>C</option></select></div><div class="field"><label>Biodata singkat</label><input name="bio" value="${esc(t.bio||'')}"></div><button>Simpan</button> <button type="button" class="secondary" onclick="closeModal()">Batal</button></form></div></div>`;document.getElementById('teacherForm').onsubmit=e=>{e.preventDefault();let x=Object.fromEntries(new FormData(e.target));if(idx!==undefined)db.teachers[idx]=x;else db.teachers.push(x);save();closeModal();render();toast('Data guru tersimpan.')}}function editTeacher(i){teacherForm(i)}function deleteTeacher(i){if(confirm('Hapus akun guru ini?')){db.teachers.splice(i,1);save();render()}}
+function settingsPage(){return pageHead('Pengaturan aplikasi','Kelola identitas, logo, menu, dan integrasi sekolah.')+panel('Identitas sekolah',`<form id="settingsForm"><div class="field"><label>Nama aplikasi</label><input name="title" value="${esc(db.settings.title)}" required></div><div class="field"><label>Logo sekolah (gambar PNG/JPG)</label><input name="logo" type="file" accept="image/*"><small class="muted">Logo akan ditampilkan pada halaman login dan aplikasi.</small></div><button>Simpan identitas</button></form>`)+panel('Nama dan visibilitas menu',`<form id="menuForm">${navItems.filter(x=>x[0]!=='parent').map(x=>`<div class="form-grid" style="align-items:center;border-bottom:1px solid var(--line);padding:8px 0"><div class="field"><label>${x[2]}</label><input name="name_${x[0]}" value="${esc(db.settings.menuNames[x[0]]||x[2])}"></div><div class="field"><label>Tampilkan menu</label><select name="enabled_${x[0]}"><option value="true" ${(db.menusEnabled[x[0]]!==false)?'selected':''}>Aktif</option><option value="false" ${db.menusEnabled[x[0]]===false?'selected':''}>Nonaktif</option></select></div></div>`).join('')}<p><button>Simpan menu</button></p></form>`)+panel('Google Spreadsheet',`<p class="small muted">Untuk mengirim data langsung ke Google Spreadsheet, buat Google Apps Script Web App dan gunakan URL-nya dari menu Rekap Nilai.</p><button class="secondary" onclick="exportGrades()">Unduh rekap nilai CSV</button>`)+panel('Data lokal aplikasi',`<p class="small muted">Data tersimpan di browser/perangkat ini. Untuk pemakaian bersama oleh banyak guru dan wali murid dari perangkat berbeda, aplikasi perlu dihubungkan ke server/database bersama.</p><button class="danger" onclick="resetApp()">Hapus semua data aplikasi</button>`)}function resetApp(){if(confirm('PERHATIAN: hapus seluruh data aplikasi dari browser ini?')){localStorage.removeItem(STORE);db=fresh();save();logout();location.reload()}}
+function openPassword(){document.getElementById('modalRoot').innerHTML=`<div class="modal-back"><div class="modal"><h3>Ubah kata sandi</h3><form id="passwordForm"><div class="field"><label>Kata sandi saat ini</label><input name="old" type="password" required></div><div class="field"><label>Kata sandi baru</label><input name="next" type="password" minlength="4" required></div><div class="field"><label>Ulangi kata sandi baru</label><input name="confirm" type="password" minlength="4" required></div><button>Simpan kata sandi</button> <button type="button" class="secondary" onclick="closeModal()">Batal</button></form></div></div>`;document.getElementById('passwordForm').onsubmit=e=>{e.preventDefault();let f=Object.fromEntries(new FormData(e.target));if(f.next!==f.confirm){toast('Konfirmasi kata sandi tidak sama.');return}if(user.role==='operator'){if(f.old!=='123456'){toast('Kata sandi lama salah.');return}db.operatorPassword=f.next}else if(user.role==='guru'){let t=db.teachers.find(t=>t.name===user.name);if(!t||t.password!==f.old){toast('Kata sandi lama salah.');return}t.password=f.next}else{let k=user.name.toLowerCase(),old=db.parentsPasswords[k]||'Wali murid';if(f.old!==old){toast('Kata sandi lama salah.');return}db.parentsPasswords[k]=f.next}save();if(user.role==='operator'){document.getElementById('loginForm').onsubmit=null;toast('Sandi operator berubah. Simpan sandi baru dengan aman.')}else toast('Kata sandi berhasil diubah.');closeModal()}}
+// Operator can set a new operator password after the initial password is changed.
+const originalSubmit=document.getElementById('loginForm').onsubmit;document.getElementById('loginForm').addEventListener('submit',e=>{if(role==='operator'&&db.operatorPassword&&document.getElementById('loginPassword').value!==db.operatorPassword){e.preventDefault();toast('Kata sandi operator tidak sesuai.')}},true);
+let _oldLoginHandler=document.getElementById('loginForm');
+function wireCommon(){let tf=document.getElementById('teacherAttForm');if(tf)tf.onsubmit=e=>{e.preventDefault();db.teacherAttendance.push({...Object.fromEntries(new FormData(e.target)),teacher:user.name});save();render();toast('Absen guru tersimpan.')};let jf=document.getElementById('journalForm');if(jf)jf.onsubmit=e=>{e.preventDefault();db.journals.push({...Object.fromEntries(new FormData(e.target)),teacher:user.name});save();render();toast('Jurnal tersimpan.')};let vf=document.getElementById('videoForm');if(vf)vf.onsubmit=async e=>{e.preventDefault();let f=e.target,file=f.file.files[0],data='';try{if(file)data=await fileData(file);if(!file&&!f.url.value){toast('Pilih video atau masukkan tautan.');return}let s=db.students.find(x=>x.id===user.childId);db.videos.push({child:s?.name||'Anak',parent:user.name,title:f.title.value,note:f.note.value,date:today(),data,url:f.url.value});save();render();toast('Kegiatan berhasil dikirim kepada guru.')}catch(err){toast(err.message)}};let sf=document.getElementById('settingsForm');if(sf)sf.onsubmit=async e=>{e.preventDefault();db.settings.title=e.target.title.value;try{if(e.target.logo.files[0])db.settings.logo=await fileData(e.target.logo.files[0]);save();syncLogo();toast('Identitas sekolah tersimpan.')}catch(err){toast(err.message)}};let mf=document.getElementById('menuForm');if(mf)mf.onsubmit=e=>{e.preventDefault();navItems.filter(x=>x[0]!=='parent').forEach(x=>{db.settings.menuNames[x[0]]=e.target['name_'+x[0]].value;db.menusEnabled[x[0]]=e.target['enabled_'+x[0]].value==='true'});save();buildNav();render();toast('Pengaturan menu tersimpan.')}}const _wirePage=wirePage;wirePage=function(){_wirePage();wireCommon()};
+// Override login verification to support a changed operator password.
+const loginFormEl=document.getElementById('loginForm');loginFormEl.removeEventListener('submit',()=>{});let loginHandler=loginFormEl.onsubmit;loginFormEl.onsubmit=function(e){e.preventDefault();let name=document.getElementById('loginName').value.trim(),pw=document.getElementById('loginPassword').value;if(role==='operator'){if(pw!==(db.operatorPassword||'123456')){toast('Kata sandi operator tidak sesuai.');return}user={role:'operator',name:'Operator'}}else if(role==='guru'){let t=db.teachers.find(t=>t.name.toLowerCase()===name.toLowerCase());if(!t||t.password!==pw){toast('Nama guru atau kata sandi tidak sesuai.');return}user={role:'guru',name:t.name,class:t.class||'A'}}else{let child=db.students.find(s=>[s.guardian,s.father,s.mother].filter(Boolean).some(n=>n.toLowerCase()===name.toLowerCase()));if(!child){toast('Nama wali belum terhubung dengan data murid. Hubungi operator.');return}if(pw!==(db.parentsPasswords[name.toLowerCase()]||'Wali murid')){toast('Kata sandi wali murid tidak sesuai.');return}user={role:'wali',name,childId:child.id}}document.getElementById('loginScreen').style.display='none';document.getElementById('app').style.display='block';document.getElementById('userRoleLabel').textContent=user.role.toUpperCase();document.getElementById('userNameLabel').textContent=user.name;syncLogo();buildNav();go(user.role==='wali'?'parent':'dashboard')};
+
+// Penyesuaian akses kelompok guru dan unduhan absensi.
+function teacherGroup(){return user&&user.role==='guru'?(user.class||'A'):selectedClass}
+function studentsPage(){let c=teacherGroup();selectedClass=c;let rows=sortStudents(db.students.filter(s=>s.class===c)).map((s,i)=>`<tr><td>${i+1}</td><td><b>${esc(s.name)}</b></td><td>${esc(s.gender)}</td><td>${esc(s.father||'—')}</td><td>${esc(s.mother||'—')}</td><td>${esc(s.phone)}</td><td>${user.role==='operator'?`<div class="actions"><button class="secondary" onclick="editStudent('${s.id}')">Edit</button><button class="danger" onclick="deleteStudent('${s.id}')">Hapus</button></div>`:'<span class="badge">Lihat saja</span>'}</td></tr>`).join('')||`<tr><td colspan="7" class="empty">Belum ada murid di Kelompok ${c}.</td></tr>`;return pageHead('Data Murid','Daftar murid pada kelompok yang ditugaskan, diurutkan A–Z.',user.role==='operator'?'<button onclick="studentForm()">＋ Tambah murid</button>':'')+(user.role==='operator'?`<div class="toolbar"><label style="margin:0">Pilih kelompok</label><select id="classFilter" onchange="selectedClass=this.value;render()"><option value="A" ${c==='A'?'selected':''}>Kelompok A</option><option value="B" ${c==='B'?'selected':''}>Kelompok B</option><option value="C" ${c==='C'?'selected':''}>Kelompok C</option></select><input id="studentSearch" placeholder="Cari nama murid…" oninput="filterTable(this.value)"></div>`:`<div class="notice">Akun guru hanya dapat melihat murid Kelompok ${c} sesuai penugasan.</div>`)+panel('Daftar Kelompok '+c,`<div class="table-wrap"><table id="studentTable"><thead><tr><th>No.</th><th>Nama murid</th><th>Jenis kelamin</th><th>Ayah</th><th>Ibu</th><th>No. HP wali</th><th>Aksi</th></tr></thead><tbody>${rows}</tbody></table></div><p class="small muted">Jumlah murid kelompok ${c}: ${db.students.filter(s=>s.class===c).length}</p>`)}
+function attendancePage(){let date=document.getElementById('attDate')?.value||today(),c=teacherGroup();selectedClass=c;let students=sortStudents(db.students.filter(s=>s.class===c));let key=date+'|'+c,vals=db.attendance[key]||{};let rows=students.map(s=>`<tr><td>${esc(s.name)}</td><td><select data-att="${s.id}"><option value="H" ${(vals[s.id]||'H')==='H'?'selected':''}>H — Hadir</option><option value="S" ${vals[s.id]==='S'?'selected':''}>S — Sakit</option><option value="I" ${vals[s.id]==='I'?'selected':''}>I — Izin</option><option value="A" ${vals[s.id]==='A'?'selected':''}>A — Alpa</option></select></td></tr>`).join('')||'<tr><td colspan="2" class="empty">Belum ada murid di kelompok ini.</td></tr>';let controls=user.role==='operator'?`<select id="attClass" onchange="selectedClass=this.value;render()"><option value="A" ${c==='A'?'selected':''}>Kelompok A</option><option value="B" ${c==='B'?'selected':''}>Kelompok B</option><option value="C" ${c==='C'?'selected':''}>Kelompok C</option></select>`:`<span class="pill">Kelompok ${c}</span>`;return pageHead('Absensi Murid','Catat kehadiran dan unduh rekap absensi.')+`<div class="toolbar">${controls}<input id="attDate" type="date" value="${date}" onchange="render()"><button class="secondary" onclick="calendarVisible=!calendarVisible;render()">${calendarVisible?'Sembunyikan kalender':'Tampilkan kalender'}</button><button onclick="saveAttendance()">Simpan absensi</button><button class="secondary" onclick="downloadAttendance('${c}','${date.slice(0,7)}')">↓ Unduh rekap absensi CSV</button></div>${calendarVisible?panel('Kalender kecil · '+new Date(date+'T12:00:00').toLocaleDateString('id-ID',{month:'long',year:'numeric'}),calendarHtml(date)):''}${panel('Absensi Kelompok '+c,`<div class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Status kehadiran</th></tr></thead><tbody>${rows}</tbody></table></div>`)}${panel('Rekap absensi bulanan',monthlyAttendance(c,date))}`}
+function downloadAttendance(cls,ym,onlyStudentId){let students=sortStudents(db.students.filter(s=>s.class===cls&&(!onlyStudentId||s.id===onlyStudentId)));let lines=[['Tanggal','Nama murid','Kelompok','Status']];Object.entries(db.attendance).sort(([a],[b])=>a.localeCompare(b)).forEach(([key,vals])=>{let [date,c]=key.split('|');if(c!==cls||!date.startsWith(ym))return;students.forEach(st=>{if(vals[st.id])lines.push([date,st.name,cls,({'H':'Hadir','S':'Sakit','I':'Izin','A':'Alpa'})[vals[st.id]]||vals[st.id]])})});download('\ufeff'+lines.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n'),`absensi_kelompok_${cls}_${ym}.csv`,'text/csv;charset=utf-8')}
+function gradesPage(){let c=teacherGroup();selectedClass=c;let students=sortStudents(db.students.filter(s=>s.class===c)),sid=document.getElementById('gradeStudent')?.value||students[0]?.id||'',term=document.getElementById('gradeTerm')?.value||'Bulan 1';let s=students.find(x=>x.id===sid)||students[0],record=s?db.grades[s.id]||{}:{};let body=s?`<div class="toolbar"><label style="margin:0">Murid</label><select id="gradeStudent" onchange="render()">${students.map(x=>`<option value="${x.id}" ${x.id===s.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select><label style="margin:0">Penilaian</label><select id="gradeTerm" onchange="render()">${['Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2'].map(x=>`<option ${x===term?'selected':''}>${x}</option>`).join('')}</select></div><form id="gradeForm"><div class="form-grid">${term.startsWith('Bulan')?`<div class="field"><label>Nilai angka</label><input name="score" type="number" min="0" max="100" value="${esc(record[term]?.score||'')}"></div><div class="field"><label>Uraian</label><select name="desc"><option ${record[term]?.desc==='Cukup'?'selected':''}>Cukup</option><option ${record[term]?.desc==='Baik'?'selected':''}>Baik</option><option ${record[term]?.desc==='Bagus'?'selected':''}>Bagus</option></select></div><div class="field full"><label>Catatan perkembangan</label><textarea name="narrative">${esc(record[term]?.narrative||'')}</textarea></div>`:domains.map((d,i)=>`<div class="field full"><label>${d}</label><div class="form-grid"><div class="field"><label>Nilai angka</label><input name="score${i}" type="number" min="0" max="100" value="${esc(record[term]?.domains?.[i]?.score||'')}"></div><div class="field"><label>Uraian perkembangan</label><textarea name="desc${i}">${esc(record[term]?.domains?.[i]?.desc||'')}</textarea></div><div class="field"><label>Dokumen PDF (opsional)</label><input type="file" name="pdf${i}" accept="application/pdf"></div><div class="field"><label>Dokumentasi kegiatan</label><input type="file" name="media${i}" accept="image/*,video/*"></div></div></div>`).join('')}</div><div class="actions"><button type="submit">Simpan nilai</button><button type="button" class="secondary" onclick="approveGrade('${s.id}','${term}')">${db.approved[s.id+'|'+term]?'✓ Sudah disetujui':'Setujui & tampilkan ke wali'}</button></div></form><p class="small muted">Nilai hanya untuk murid Kelompok ${c}; yang disetujui dapat dilihat wali murid terkait.</p>`:'<div class="empty">Belum ada murid pada kelompok ini.</div>';return pageHead('Nilai Murid','Input nilai murid sesuai kelompok tugas guru.')+(user.role==='operator'?`<div class="toolbar"><select onchange="selectedClass=this.value;render()"><option value="A" ${c==='A'?'selected':''}>Kelompok A</option><option value="B" ${c==='B'?'selected':''}>Kelompok B</option><option value="C" ${c==='C'?'selected':''}>Kelompok C</option></select></div>`:`<div class="notice">Kelompok tugas: ${c}</div>`)+panel('Formulir penilaian',body)}
+function reportPage(){let students=sortStudents(db.students.filter(s=>user.role!=='guru'||s.class===user.class));let rows=students.map(s=>{let g=db.grades[s.id]||{};return `<tr><td>${esc(s.name)}</td><td>${s.class}</td>${['Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2'].map(t=>`<td>${esc(g[t]?.score||avgDomains(g[t])||'—')}</td>`).join('')}</tr>`}).join('')||'<tr><td colspan="7" class="empty">Belum ada data nilai pada kelompok ini.</td></tr>';return pageHead(user.role==='guru'?'Rekap Nilai Kelompok '+user.class:'Rekap Nilai Semua Murid','Ringkasan nilai bulanan dan MID. Ekspor hanya memuat data nilai.','<button onclick="exportGrades()">↓ Unduh CSV</button> <button class="secondary" onclick="printGrades()">PDF / Cetak</button>')+panel('Rekap nilai',`<div class="toolbar">${user.role==='operator'?'<button class="secondary" onclick="sendSpreadsheet()">↗ Kirim ke Google Spreadsheet</button>':''}</div><div id="gradePrint" class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Kelompok</th><th>Bulan 1</th><th>Bulan 2</th><th>Bulan 3</th><th>MID 1</th><th>MID 2</th></tr></thead><tbody>${rows}</tbody></table></div><p class="small muted">MID menampilkan ringkasan rata-rata angka dari lima domain.</p>`)}
+function exportGrades(){let students=sortStudents(db.students.filter(s=>user&&user.role==='guru'?s.class===user.class:true));let lines=[['Nama murid','Kelompok','Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2']];students.forEach(s=>{let g=db.grades[s.id]||{};lines.push([s.name,s.class,g['Bulan 1']?.score||'',g['Bulan 2']?.score||'',g['Bulan 3']?.score||'',avgDomains(g['MID 1']),avgDomains(g['MID 2'])])});download('\ufeff'+lines.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n'),'rekap_nilai_tk_aba.csv','text/csv;charset=utf-8')}
+const _parentPageWithAttendance=parentPage;parentPage=function(){let base=_parentPageWithAttendance();let s=db.students.find(x=>x.id===user.childId);if(!s)return base;let ym=today().slice(0,7);let records=[];Object.entries(db.attendance).sort(([a],[b])=>a.localeCompare(b)).forEach(([key,vals])=>{let [date,c]=key.split('|');if(c===s.class&&date.startsWith(ym)&&vals[s.id])records.push({date,status:({'H':'Hadir','S':'Sakit','I':'Izin','A':'Alpa'})[vals[s.id]]||vals[s.id]})});let body=`<div class="toolbar"><span class="pill">Bulan ${new Date(ym+'-15T12:00:00').toLocaleDateString('id-ID',{month:'long',year:'numeric'})}</span><button class="secondary" onclick="downloadAttendance('${s.class}','${ym}','${s.id}')">↓ Unduh absensi anak (CSV)</button></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Status</th></tr></thead><tbody>${records.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.status)}</td></tr>`).join('')||'<tr><td colspan="2" class="empty">Belum ada absensi yang tercatat untuk bulan ini.</td></tr>'}</tbody></table></div>`;return base+panel('Absensi anak',body)};
+const _videosPageScoped=videosPage;videosPage=function(){let base=_videosPageScoped();if(user.role==='guru'){let allowed=new Set(db.students.filter(s=>s.class===user.class).map(s=>s.name));let filtered=db.videos.filter(v=>allowed.has(v.child));let cards=filtered.slice().reverse().map(v=>`<div class="video-card"><b>${esc(v.child)}</b><span class="pill">${esc(v.parent)}</span><p class="small muted">${esc(v.date)} · ${esc(v.title)}</p>${v.data?`<video controls src="${v.data}"></video>`:v.url?`<a href="${esc(v.url)}" target="_blank" rel="noopener">Lihat video</a>`:''}<p>${esc(v.note||'')}</p></div>`).join('')||'<div class="empty">Belum ada video kegiatan untuk kelompok tugas Anda.</div>';return base.replace(/<section class="panel"><div class="panel-head"><h3>Dokumentasi kegiatan<\/h3><\/div>[\s\S]*?<\/section>$/,panel('Dokumentasi kegiatan Kelompok '+user.class,cards))}return base};
+const _dashboardScoped=dashboardPage;dashboardPage=function(){if(user.role!=='guru')return _dashboardScoped();let c=user.class||'A',students=db.students.filter(s=>s.class===c),present=Object.entries(db.attendance).filter(([k])=>k===today()+'|'+c).reduce((n,[k,v])=>n+Object.values(v).filter(x=>x==='H').length,0),pct=students.length?Math.round(present/students.length*100):0;return pageHead('Selamat datang, '+esc(user.name)+' 👋','Dashboard Kelompok '+c+' · TK Aisyiyah Bustanul Athfal Berua')+`<div class="cards">${stat('👧',students.length,'Murid kelompok '+c,'#dcf8e8')}${stat('👩&zwj;🏫',1,'Guru aktif','#e8e8ff')}${stat('✓',pct+'%','Kehadiran hari ini','#fff0c9')}${stat('▶',db.videos.filter(v=>students.some(s=>s.name===v.child)).length,'Video kelompok','#ffe5ed')}</div>`+panel('Akses cepat',`<div class="quick-grid"><button class="quick" onclick="go('students')"><span>👧</span><b>Data Murid</b><small>Kelompok ${c}</small></button><button class="quick" onclick="go('attendance')"><span>✓</span><b>Absensi Murid</b><small>Catat dan unduh</small></button><button class="quick" onclick="go('grades')"><span>★</span><b>Nilai Murid</b><small>Penilaian bulanan & MID</small></button><button class="quick" onclick="go('journal')"><span>✎</span><b>Jurnal Guru</b><small>Catatan kelas</small></button><button class="quick" onclick="go('videos')"><span>▶</span><b>Video Kegiatan</b><small>Kiriman kelompok</small></button><button class="quick" onclick="go('report')"><span>▤</span><b>Rekap Nilai</b><small>Unduh laporan</small></button></div>`)+panel('Profil singkat',`<b>${esc(user.name)}</b><p class="muted small">Guru · Kelompok ${c}</p><span class="pill">Akun aktif</span>`)}
+
+function journalPage(){let c=user.role==='guru'?(user.class||'A'):selectedClass;let entries=db.journals.slice().reverse().filter(j=>user.role!=='guru'||j.class===c);let cls=user.role==='operator'?`<select name="class"><option ${c==='A'?'selected':''}>A</option><option ${c==='B'?'selected':''}>B</option><option ${c==='C'?'selected':''}>C</option></select>`:`<input type="hidden" name="class" value="${c}"><div class="notice">Jurnal hanya untuk Kelompok ${c} sesuai penugasan guru.</div>`;return pageHead('Jurnal Guru','Catatan kegiatan pembelajaran di kelas.')+panel('Tambah jurnal',`<form id="journalForm"><div class="form-grid"><div class="field"><label>Tanggal</label><input type="date" name="date" value="${today()}" required></div><div class="field"><label>Kelompok</label>${cls}</div><div class="field full"><label>Tema / kegiatan</label><input name="title" required></div><div class="field full"><label>Uraian kegiatan dan refleksi</label><textarea name="body" rows="4" required></textarea></div></div><button>Simpan jurnal</button></form>`)+panel('Riwayat jurnal',entries.map(j=>`<div class="video-card"><b>${esc(j.title)}</b> <span class="pill">Kelompok ${esc(j.class)}</span><p class="small muted">${esc(j.date)} · ${esc(j.teacher)}</p><p>${esc(j.body)}</p></div>`).join('')||'<div class="empty">Belum ada jurnal untuk kelompok ini.</div>')}
+
+
+// Pembatasan akses tambahan: absensi guru hanya untuk akun guru yang sedang masuk.
+const _teacherAttendancePageScoped = teacherAttendancePage;
+teacherAttendancePage = function(){
+  const mine = user && user.role === 'guru';
+  const records = db.teacherAttendance.filter(a => user.role === 'operator' || a.name === user.name || a.teacher === user.name)
+    .slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  const rows = records.map(a=>`<tr><td>${esc(a.date)}</td><td>${esc(a.name || a.teacher || '')}</td><td>${esc(a.status)}</td><td>${esc(a.note||'')}</td></tr>`).join('') || '<tr><td colspan="4" class="empty">Belum ada catatan absensi.</td></tr>';
+  const form = mine ? panel('Absen kehadiran saya',`<form id="teacherAttForm"><div class="notice">Akun aktif: <b>${esc(user.name)}</b>. Anda hanya dapat mengabsenkan diri sendiri.</div><input type="hidden" name="name" value="${esc(user.name)}"><div class="form-grid"><div class="field"><label>Nama guru</label><input value="${esc(user.name)}" readonly></div><div class="field"><label>Tanggal</label><input name="date" type="date" value="${today()}" required></div><div class="field"><label>Status</label><select name="status"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></div><div class="field"><label>Catatan</label><input name="note" placeholder="Opsional"></div></div><button>Simpan absensi saya</button></form>`) : panel('Informasi', '<p class="muted">Operator dapat melihat rekap absensi, tetapi tidak mengabsenkan guru atas nama orang lain. Guru masuk dengan akun masing-masing untuk mengisi absensi pribadi.</p>');
+  return pageHead('Absen Guru', mine ? 'Catat dan lihat absensi akun Anda sendiri.' : 'Rekap absensi guru.') + form + panel(mine ? 'Riwayat absensi saya' : 'Rekap kehadiran guru',`<div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Nama guru</th><th>Status</th><th>Catatan</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+};
+const _wireCommonSelfAttendance = wireCommon;
+wireCommon = function(){
+  _wireCommonSelfAttendance();
+  const tf = document.getElementById('teacherAttForm');
+  if(tf) tf.onsubmit = e => {
+    e.preventDefault();
+    if(!user || user.role !== 'guru'){ toast('Hanya guru yang masuk dengan akunnya sendiri dapat mengisi absensi pribadi.'); return; }
+    const f = e.target;
+    const date = f.elements.date.value;
+    const status = f.elements.status.value;
+    const note = f.elements.note.value;
+    const old = db.teacherAttendance.findIndex(a => a.date === date && (a.name === user.name || a.teacher === user.name));
+    const rec = {date, name:user.name, teacher:user.name, status, note};
+    if(old >= 0) db.teacherAttendance[old] = rec; else db.teacherAttendance.push(rec);
+    save(); render(); toast('Absensi pribadi berhasil disimpan.');
+  };
+};
+// Wali murid dapat mengunduh absensi anak sendiri saja.
+const _parentPageWithAttendanceDownload = parentPage;
+parentPage = function(){
+  const html = _parentPageWithAttendanceDownload();
+  const s = db.students.find(x=>x.id===user.childId);
+  if(!s) return html;
+  const downloadPanel = panel('Unduh absensi anak',`<p class="muted small">File hanya berisi catatan absensi ${esc(s.name)}, bukan data murid lain.</p><div class="toolbar"><label for="parentAttMonth" style="margin:0">Bulan</label><input id="parentAttMonth" type="month" value="${today().slice(0,7)}"><button onclick="downloadAttendance('${s.class}',document.getElementById('parentAttMonth').value,'${s.id}')">↓ Unduh absensi anak (CSV)</button></div>`);
+  return html + downloadPanel;
+};
+
+
+
+// Pembaruan: operator mengelola/mengunduh absensi guru; guru hanya mengirim absensi dirinya;
+// wali murid dapat mengajukan izin untuk anaknya sendiri dan melihat ringkasan absensi guru.
+function downloadTeacherAttendance(){
+  if(!user || user.role!=='operator'){toast('Unduh absensi guru hanya tersedia untuk operator.');return}
+  const rows=[['Tanggal','Nama guru','Status','Catatan'],...db.teacherAttendance.slice().sort((a,b)=>(a.date||'').localeCompare(b.date||'')).map(a=>[a.date,a.name||a.teacher||'',a.status||'',a.note||''])];
+  download('\ufeff'+rows.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n'),'absensi_guru_tk_aba.csv','text/csv;charset=utf-8');
+}
+function editTeacherAttendance(index){
+  if(!user || user.role!=='operator'){toast('Hanya operator yang dapat mengedit absensi guru.');return}
+  const a=db.teacherAttendance[index]; if(!a)return;
+  const date=prompt('Tanggal (YYYY-MM-DD):',a.date||today()); if(date===null)return;
+  const status=prompt('Status (Hadir/Sakit/Izin/Alpa):',a.status||'Hadir'); if(status===null)return;
+  if(!['Hadir','Sakit','Izin','Alpa'].includes(status)){toast('Status tidak valid.');return}
+  const note=prompt('Catatan:',a.note||''); if(note===null)return;
+  db.teacherAttendance[index]={...a,date,name:a.name||a.teacher,status,note}; save();render();toast('Absensi guru diperbarui operator.');
+}
+function deleteTeacherAttendance(index){
+  if(!user || user.role!=='operator')return;
+  if(confirm('Hapus catatan absensi guru ini?')){db.teacherAttendance.splice(index,1);save();render();toast('Catatan absensi dihapus.');}
+}
+const _teacherAttendancePageFinal = teacherAttendancePage;
+teacherAttendancePage=function(){
+  const mine=user&&user.role==='guru';
+  const records=(db.teacherAttendance||[]).map((a,i)=>({...a,_index:i})).filter(a=>user.role==='operator'||(mine&&(a.name===user.name||a.teacher===user.name))).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  const rows=records.map(a=>`<tr><td>${esc(a.date||'')}</td><td>${esc(a.name||a.teacher||'')}</td><td>${esc(a.status||'')}</td><td>${esc(a.note||'')}</td>${user.role==='operator'?`<td><div class="actions"><button class="secondary" onclick="editTeacherAttendance(${a._index})">Edit</button><button class="danger" onclick="deleteTeacherAttendance(${a._index})">Hapus</button></div></td>`:''}</tr>`).join('')||`<tr><td colspan="${user.role==='operator'?5:4}" class="empty">Belum ada catatan absensi.</td></tr>`;
+  let form='';
+  if(mine) form=panel('Absen kehadiran saya',`<form id="teacherAttForm"><div class="notice">Anda hanya dapat mengabsenkan diri sendiri. Catatan yang sudah dikirim tidak dapat diedit oleh guru; hubungi operator jika ada kesalahan.</div><div class="form-grid"><div class="field"><label>Nama guru</label><input value="${esc(user.name)}" readonly></div><div class="field"><label>Tanggal</label><input name="date" type="date" value="${today()}" required></div><div class="field"><label>Status</label><select name="status"><option>Hadir</option><option>Sakit</option><option>Izin</option><option>Alpa</option></select></div><div class="field"><label>Catatan</label><input name="note" placeholder="Opsional"></div></div><button>Simpan absensi saya</button></form>`);
+  else form=panel('Pengelolaan absensi guru',`<div class="notice">Operator dapat mengunduh, mengedit, dan menghapus catatan absensi guru. Guru mengisi kehadirannya sendiri melalui akun masing-masing.</div><button onclick="downloadTeacherAttendance()">↓ Unduh absensi guru (CSV)</button>`);
+  return pageHead('Absen Guru',mine?'Catat dan lihat riwayat absensi akun Anda sendiri.':'Kelola dan unduh catatan absensi seluruh guru.')+form+panel(mine?'Riwayat absensi saya':'Rekap absensi guru',`<div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Nama guru</th><th>Status</th><th>Catatan</th>${user.role==='operator'?'<th>Aksi operator</th>':''}</tr></thead><tbody>${rows}</tbody></table></div>`);
+};
+const _wireCommonFinal = wireCommon;
+wireCommon=function(){
+  _wireCommonFinal();
+  const tf=document.getElementById('teacherAttForm');
+  if(tf)tf.onsubmit=e=>{
+    e.preventDefault(); if(!user||user.role!=='guru'){toast('Silakan masuk menggunakan akun guru.');return}
+    const date=e.target.elements.date.value;
+    const existing=(db.teacherAttendance||[]).some(a=>a.date===date&&(a.name===user.name||a.teacher===user.name));
+    if(existing){toast('Absensi untuk tanggal ini sudah ada. Hubungi operator jika perlu koreksi.');return}
+    db.teacherAttendance.push({date,name:user.name,teacher:user.name,status:e.target.elements.status.value,note:e.target.elements.note.value});
+    save();render();toast('Absensi pribadi berhasil disimpan.');
+  };
+  const pf=document.getElementById('parentAbsenceForm');
+  if(pf)pf.onsubmit=e=>{
+    e.preventDefault();if(!user||user.role!=='wali'){toast('Fitur ini khusus wali murid.');return}
+    const child=db.students.find(x=>x.id===user.childId);if(!child){toast('Data anak tidak ditemukan.');return}
+    const date=e.target.elements.date.value, note=e.target.elements.note.value.trim();
+    if(!date||!note){toast('Isi tanggal dan keterangan izin.');return}
+    db.parentAbsences=db.parentAbsences||[];
+    const duplicate=db.parentAbsences.some(a=>a.childId===child.id&&a.date===date);
+    if(duplicate){toast('Pengajuan izin untuk tanggal tersebut sudah tercatat.');return}
+    db.parentAbsences.push({childId:child.id,childName:child.name,class:child.class,parent:user.name,date,note,status:'Izin',createdAt:new Date().toISOString()});
+    const key=date+'|'+child.class;db.attendance=db.attendance||{};db.attendance[key]=db.attendance[key]||{};db.attendance[key][child.id]='I';
+    // Browser version: open a prefilled WhatsApp notification to the teacher for this class.
+    // WhatsApp requires the user to press Send; unattended automatic sending needs WhatsApp Business API/backend.
+    const teacher=(db.teachers||[]).find(t=>(t.class||'A')===child.class&&t.whatsapp);
+    const rawNumber=(teacher&&teacher.whatsapp)||db.settings?.whatsappOperator||'';
+    const phone=String(rawNumber).replace(/\D/g,'').replace(/^0/,'62').replace(/^8/,'628');
+    const message=`PEMBERITAHUAN IZIN WALI MURID\nTK AISYIYAH BUSTANUL ATHFAL BERUA\nNama anak: ${child.name}\nKelompok: ${child.class}\nTanggal izin: ${date}\nAlasan: ${note}\nDikirim oleh: ${user.name}`;
+    let waWindow=null;
+    if(phone) waWindow=window.open('https://wa.me/'+phone+'?text='+encodeURIComponent(message),'_blank','noopener');
+    save();render();
+    if(phone){toast(waWindow?'Izin tersimpan. WhatsApp dibuka dengan pemberitahuan untuk guru; tekan Kirim di WhatsApp.':'Izin tersimpan. Izinkan pop-up browser untuk membuka WhatsApp.');}
+    else toast('Izin tersimpan, tetapi nomor WhatsApp guru kelas/operator belum diatur.');
+  };
+};
+const _parentPageFinal = parentPage;
+parentPage=function(){
+  const base=_parentPageFinal(); const child=db.students.find(x=>x.id===user.childId); if(!child)return base;
+  const requests=(db.parentAbsences||[]).filter(a=>a.childId===child.id).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  const requestRows=requests.map(a=>`<tr><td>${esc(a.date)}</td><td>${esc(a.note)}</td><td><span class="badge">${esc(a.status||'Izin')}</span></td></tr>`).join('')||'<tr><td colspan="3" class="empty">Belum ada pengajuan izin.</td></tr>';
+  const leavePanel=panel('Ajukan izin ketidakhadiran anak',`<p class="small muted">Pengajuan hanya berlaku untuk ${esc(child.name)}. Pilih tanggal dan tuliskan alasan izin.</p><form id="parentAbsenceForm"><div class="form-grid"><div class="field"><label>Tanggal izin</label><input type="date" name="date" min="${today()}" value="${today()}" required></div><div class="field"><label>Keterangan izin</label><input name="note" maxlength="250" placeholder="Contoh: anak kurang sehat" required></div></div><button>Kirim izin</button></form><div class="table-wrap" style="margin-top:14px"><table><thead><tr><th>Tanggal</th><th>Keterangan</th><th>Status</th></tr></thead><tbody>${requestRows}</tbody></table></div>`);
+  const teacherRecords=(db.teacherAttendance||[]).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(a=>`<tr><td>${esc(a.date||'')}</td><td>${esc(a.name||a.teacher||'')}</td><td>${esc(a.status||'')}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Belum ada absensi guru yang tercatat.</td></tr>';
+  const teacherPanel=panel('Informasi kehadiran guru',`<p class="small muted">Ringkasan absensi guru yang dicatat oleh sekolah.</p><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Nama guru</th><th>Status</th></tr></thead><tbody>${teacherRecords}</tbody></table></div>`);
+  return base+leavePanel+teacherPanel;
+};
+
+
+
+// Pengelolaan mata pelajaran oleh operator dan rekap lengkap per mata pelajaran.
+function syncSubjects(){db.subjects=[...domains];save()}
+function addSubject(){if(!user||user.role!=='operator'){toast('Hanya operator yang dapat mengelola mata pelajaran.');return}const name=prompt('Nama mata pelajaran / domain baru:');if(name===null)return;const clean=name.trim();if(!clean){toast('Nama mata pelajaran wajib diisi.');return}if(domains.some(x=>x.toLowerCase()===clean.toLowerCase())){toast('Mata pelajaran tersebut sudah ada.');return}domains.push(clean);syncSubjects();render();toast('Mata pelajaran ditambahkan.')}
+function editSubject(i){if(!user||user.role!=='operator')return;const old=domains[i];if(old===undefined)return;const name=prompt('Ubah nama mata pelajaran:',old);if(name===null)return;const clean=name.trim();if(!clean){toast('Nama mata pelajaran tidak boleh kosong.');return}if(domains.some((x,j)=>j!==i&&x.toLowerCase()===clean.toLowerCase())){toast('Nama mata pelajaran sudah digunakan.');return}domains[i]=clean;syncSubjects();render();toast('Nama mata pelajaran diperbarui.')}
+function deleteSubject(i){if(!user||user.role!=='operator')return;if(domains.length<=1){toast('Minimal satu mata pelajaran harus tersedia.');return}const name=domains[i];if(!confirm('Hapus mata pelajaran "'+name+'" dari daftar aktif? Nilai lama yang sudah tersimpan tidak otomatis dihapus.'))return;domains.splice(i,1);syncSubjects();render();toast('Mata pelajaran dihapus dari daftar aktif.')}
+const _settingsPageWithSubjects=settingsPage;
+settingsPage=function(){const base=_settingsPageWithSubjects();if(!user||user.role!=='operator')return base;const rows=domains.map((d,i)=>`<tr><td>${i+1}</td><td>${esc(d)}</td><td><div class="actions"><button class="secondary" onclick="editSubject(${i})">Edit</button><button class="danger" onclick="deleteSubject(${i})">Hapus</button></div></td></tr>`).join('');return base+panel('Kelola mata pelajaran',`<p class="small muted">Operator dapat menambahkan, mengubah nama, dan menghapus mata pelajaran/domain penilaian. Daftar ini digunakan pada formulir MID 1 dan MID 2 serta rekap nilai.</p><div class="table-wrap"><table><thead><tr><th>No.</th><th>Nama mata pelajaran / domain</th><th>Aksi</th></tr></thead><tbody>${rows}</tbody></table></div><div style="margin-top:14px"><button onclick="addSubject()">＋ Tambah mata pelajaran</button></div>`) };
+
+// Rekap nilai menyertakan nilai setiap domain/mata pelajaran pada MID 1 dan MID 2.
+reportPage=function(){
+  const students=sortStudents(db.students.filter(s=>user.role!=='guru'||s.class===user.class));
+  const headers=['Nama murid','Kelompok','Bulan 1','Bulan 2','Bulan 3',...domains.map((d,i)=>'MID 1 · '+d),...domains.map((d,i)=>'MID 2 · '+d)];
+  const rows=students.map(s=>{const g=db.grades[s.id]||{};return `<tr><td>${esc(s.name)}</td><td>${esc(s.class)}</td>${['Bulan 1','Bulan 2','Bulan 3'].map(t=>`<td>${esc(g[t]?.score||'—')}</td>`).join('')}${['MID 1','MID 2'].map(t=>domains.map((d,i)=>`<td>${esc(g[t]?.domains?.[i]?.score||'—')}</td>`).join('')).join('')}</tr>`}).join('')||`<tr><td colspan="${headers.length}" class="empty">Belum ada data nilai pada kelompok ini.</td></tr>`;
+  const exportBtn=user.role==='operator'?'<button class="secondary" onclick="sendSpreadsheet()">↗ Kirim ke Google Spreadsheet</button>':'';
+  return pageHead(user.role==='guru'?'Rekap Nilai Kelompok '+user.class:'Rekap Nilai Semua Murid','Rekap nilai bulanan dan nilai setiap mata pelajaran/domain MID 1 dan MID 2.','<button onclick="exportGrades()">↓ Unduh CSV</button> <button class="secondary" onclick="printGrades()">Unduh PDF / Cetak</button>')+panel('Rekap nilai lengkap',`<div class="toolbar">${exportBtn}</div><div id="gradePrint" class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div><p class="small muted">PDF dan CSV pada menu ini hanya memuat data nilai murid.</p>`)
+};
+exportGrades=function(){
+  const headers=['Nama murid','Kelompok','Bulan 1','Bulan 2','Bulan 3',...domains.map(d=>'MID 1 - '+d),...domains.map(d=>'MID 2 - '+d)];
+  const lines=[headers];sortStudents(db.students.filter(s=>user.role!=='guru'||s.class===user.class)).forEach(s=>{const g=db.grades[s.id]||{};lines.push([s.name,s.class,...['Bulan 1','Bulan 2','Bulan 3'].map(t=>g[t]?.score||''),...['MID 1','MID 2'].map(t=>domains.map((d,i)=>g[t]?.domains?.[i]?.score||'')).flat()])});
+  download('\ufeff'+lines.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n'),'rekap_nilai_lengkap_tk_aba.csv','text/csv;charset=utf-8')
+};
+function downloadTeacherAttendancePDF(){if(!user||user.role!=='operator'){toast('Unduh PDF absensi guru hanya tersedia untuk operator.');return}const rows=(db.teacherAttendance||[]).slice().sort((a,b)=>(a.date||'').localeCompare(b.date||'')).map(a=>`<tr><td>${esc(a.date||'')}</td><td>${esc(a.name||a.teacher||'')}</td><td>${esc(a.status||'')}</td><td>${esc(a.note||'')}</td></tr>`).join('');const w=window.open('','_blank');if(!w){toast('Izinkan pop-up browser untuk membuat PDF.');return}w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Absensi Guru TK ABA Berua</title><style>body{font-family:Arial,sans-serif;padding:24px;color:#16382b}h2,p{text-align:center}table{width:100%;border-collapse:collapse;margin-top:22px}th,td{border:1px solid #9aafa4;padding:8px;text-align:left;font-size:12px}th{background:#e9f7ee}</style></head><body><h2>REKAP ABSENSI GURU</h2><p>TK AISYIYAH BUSTANUL ATHFAL BERUA</p><p>Tanggal cetak: ${esc(today())}</p><table><thead><tr><th>Tanggal</th><th>Nama guru</th><th>Status</th><th>Catatan</th></tr></thead><tbody>${rows||'<tr><td colspan="4">Belum ada data absensi.</td></tr>'}</tbody></table><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close()}
+const _teacherAttendancePagePDF=teacherAttendancePage;
+teacherAttendancePage=function(){let html=_teacherAttendancePagePDF();if(user&&user.role==='operator')html=html.replace('↓ Unduh absensi guru (CSV)','↓ Unduh absensi guru (PDF)').replace('onclick="downloadTeacherAttendance()"','onclick="downloadTeacherAttendancePDF()"');return html};
+
+
+// Pengaturan alur penilaian oleh operator: harian, bulanan, MID, dan rapor.
+(function(){
+  function getGradeFlow(){
+    db.settings=db.settings||{};
+    if(!Array.isArray(db.settings.gradeFlow)||!db.settings.gradeFlow.length) db.settings.gradeFlow=['Nilai Harian','Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2','Rapor'];
+    return db.settings.gradeFlow;
+  }
+  window.addGradeFlowStep=function(){
+    if(!user||user.role!=='operator')return;
+    const name=prompt('Nama tahap penilaian baru (contoh: Nilai Harian):');
+    if(name===null)return;const v=name.trim();if(!v){toast('Nama tahap wajib diisi.');return;}
+    const flow=getGradeFlow();if(flow.some(x=>x.toLowerCase()===v.toLowerCase())){toast('Tahap penilaian sudah ada.');return;}
+    flow.push(v);save();render();toast('Tahap penilaian ditambahkan.');
+  };
+  window.editGradeFlowStep=function(i){
+    if(!user||user.role!=='operator')return;const flow=getGradeFlow();if(!flow[i])return;
+    const old=flow[i],v=prompt('Ubah nama tahap penilaian:',old);if(v===null)return;const clean=v.trim();if(!clean){toast('Nama tahap tidak boleh kosong.');return;}
+    if(flow.some((x,j)=>j!==i&&x.toLowerCase()===clean.toLowerCase())){toast('Nama tahap sudah digunakan.');return;}
+    flow[i]=clean;
+    // Pindahkan data tahap lama ke nama baru agar nilai yang telah dicatat tetap ada.
+    Object.keys(db.grades||{}).forEach(sid=>{const g=db.grades[sid]||{};if(g[old]!==undefined){g[clean]=g[old];delete g[old];}});
+    Object.keys(db.approved||{}).forEach(k=>{if(k.endsWith('|'+old)){db.approved[k.slice(0,-old.length)+clean]=db.approved[k];delete db.approved[k];}});
+    save();render();toast('Tahap penilaian dan catatan terkait diperbarui.');
+  };
+  window.deleteGradeFlowStep=function(i){
+    if(!user||user.role!=='operator')return;const flow=getGradeFlow();if(flow.length<=1){toast('Minimal satu tahap penilaian harus tersedia.');return;}
+    const name=flow[i];if(!name)return;
+    if(!confirm('Hapus tahap "'+name+'" dari alur penilaian? Catatan nilai yang tersimpan tetap dipertahankan, tetapi tahap ini tidak tampil pada pilihan input.'))return;
+    flow.splice(i,1);save();render();toast('Tahap penilaian dihapus dari alur aktif.');
+  };
+  window.editGradeRecord=function(sid,term){
+    if(!user||user.role!=='operator')return;const g=(db.grades[sid]||{}),r=g[term];if(!r)return;
+    if(term.startsWith('Bulan')||!Array.isArray(r.domains)){
+      const score=prompt('Nilai angka untuk '+term+' (0–100):',r.score??'');if(score===null)return;
+      if(score!==''&&(!Number.isFinite(Number(score))||Number(score)<0||Number(score)>100)){toast('Nilai harus antara 0 dan 100.');return;}
+      const desc=prompt('Uraian (Cukup, Baik, Bagus):',r.desc||'Cukup');if(desc===null)return;
+      const narrative=prompt('Catatan perkembangan:',r.narrative||'');if(narrative===null)return;
+      r.score=score;r.desc=desc;r.narrative=narrative;
+    }else{
+      r.domains.forEach((d,i)=>{
+        const name=(domains&&domains[i])||('Domain '+(i+1));
+        const score=prompt('Nilai '+name+' (0–100):',d.score??'');if(score!==null){if(score!==''&&(!Number.isFinite(Number(score))||Number(score)<0||Number(score)>100)){toast('Nilai harus antara 0 dan 100.');return;}d.score=score;}
+        const desc=prompt('Uraian '+name+':',d.desc||'');if(desc!==null)d.desc=desc;
+      });
+    }
+    save();render();toast('Nilai berhasil diperbarui operator.');
+  };
+  window.deleteGradeRecord=function(sid,term){
+    if(!user||user.role!=='operator')return;if(!confirm('Hapus catatan '+term+' untuk murid ini?'))return;
+    if(db.grades[sid])delete db.grades[sid][term];delete db.approved[sid+'|'+term];save();render();toast('Catatan nilai dihapus.');
+  };
+  const priorSettingsPage=settingsPage;
+  settingsPage=function(){
+    let base=priorSettingsPage();if(!user||user.role!=='operator')return base;
+    const flow=getGradeFlow();
+    const rows=flow.map((name,i)=>`<tr><td>${i+1}</td><td>${esc(name)}</td><td><div class="actions"><button class="secondary" onclick="editGradeFlowStep(${i})">Ubah nama</button><button class="danger" onclick="deleteGradeFlowStep(${i})">Hapus tahap</button></div></td></tr>`).join('');
+    return base+panel('Pengaturan alur penilaian siswa',`<p class="small muted">Atur tahapan penilaian yang muncul pada pilihan di halaman Nilai Murid. Perubahan nama tahap akan mempertahankan catatan nilai yang sudah tersimpan. Tahap yang dihapus dari alur tidak otomatis menghapus nilai lama.</p><div class="table-wrap"><table><thead><tr><th>No.</th><th>Tahap penilaian</th><th>Aksi operator</th></tr></thead><tbody>${rows}</tbody></table></div><div style="margin-top:14px"><button onclick="addGradeFlowStep()">＋ Tambah tahap penilaian</button></div>`);
+  };
+  const priorGradesPage=gradesPage;
+  gradesPage=function(){
+    let html=priorGradesPage();
+    if(!user||user.role!=='operator')return html;
+    const flow=getGradeFlow();
+    html=html.replace(/<select id="gradeTerm" onchange="render\(\)">[\s\S]*?<\/select>/,`<select id="gradeTerm" onchange="render()">${flow.map(x=>`<option>${esc(x)}</option>`).join('')}</select>`);
+    const rows=[];
+    sortStudents(db.students).forEach(st=>{
+      const rec=db.grades[st.id]||{};
+      Object.keys(rec).forEach(term=>{
+        const value=rec[term];let summary='';
+        if(Array.isArray(value?.domains))summary=value.domains.map((d,i)=>`${esc((domains&&domains[i])||('Domain '+(i+1)))}: ${esc(d.score||'—')}`).join('<br>');
+        else summary=`Nilai: ${esc(value?.score||'—')} · ${esc(value?.desc||'')}<br>${esc(value?.narrative||'')}`;
+        rows.push(`<tr><td>${esc(st.name)}</td><td>Kelompok ${esc(st.class)}</td><td>${esc(term)}</td><td>${summary}</td><td>${db.approved[st.id+'|'+term]?'Disetujui':'Belum disetujui'}</td><td><div class="actions"><button class="secondary" onclick="editGradeRecord('${st.id}','${esc(term).replace(/'/g,"\\'")}')">Edit nilai</button><button class="danger" onclick="deleteGradeRecord('${st.id}','${esc(term).replace(/'/g,"\\'")}')">Hapus nilai</button></div></td></tr>`);
+      });
+    });
+    return html+panel('Kelola catatan nilai — operator',`<p class="small muted">Operator dapat mengoreksi atau menghapus nilai harian, bulanan, MID, dan tahap rapor yang tersimpan.</p><div class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Kelompok</th><th>Tahap</th><th>Ringkasan nilai</th><th>Status</th><th>Aksi</th></tr></thead><tbody>${rows.join('')||'<tr><td colspan="6" class="empty">Belum ada catatan nilai.</td></tr>'}</tbody></table></div>`);
+  };
+})();
+
+
+
+// Tambahan: cetak/unduh rekap absensi harian murid dalam format siap-simpan PDF.
+(function(){
+  const _attendancePageDailyPDF = attendancePage;
+  attendancePage = function(){
+    let html = _attendancePageDailyPDF();
+    if (user && (user.role === 'operator' || user.role === 'guru')) {
+      html = html.replace('Simpan absensi</button>', 'Simpan absensi</button><button class="secondary" onclick="downloadDailyAttendancePDF()">↓ Unduh absensi harian (PDF)</button>');
+    }
+    return html;
+  };
+  window.downloadDailyAttendancePDF = function(){
+    if (!user || !['operator','guru'].includes(user.role)) { toast('Unduh rekap absensi tersedia untuk guru dan operator.'); return; }
+    const date = document.getElementById('attDate')?.value || today();
+    const cls = user.role === 'guru' ? teacherGroup() : (document.getElementById('attClass')?.value || selectedClass || 'A');
+    const students = sortStudents(db.students.filter(s => s.class === cls));
+    const vals = db.attendance[date+'|'+cls] || {};
+    const labels = {H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'};
+    const counts = {H:0,S:0,I:0,A:0};
+    const rows = students.map(st => { const status = vals[st.id] || 'H'; counts[status] = (counts[status]||0)+1; return `<tr><td>${esc(st.name)}</td><td>${esc(st.gender||'')}</td><td>${esc(status)} — ${esc(labels[status]||status)}</td></tr>`; }).join('');
+    const w = window.open('', '_blank');
+    if (!w) { toast('Izinkan pop-up browser untuk membuat PDF.'); return; }
+    w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Absensi Harian Murid</title><style>body{font-family:Arial,sans-serif;padding:24px;color:#173b2d}h2,p{text-align:center;margin:6px}table{width:100%;border-collapse:collapse;margin-top:22px}th,td{border:1px solid #9aafa4;padding:8px;text-align:left;font-size:12px}th{background:#e9f7ee}.summary{margin-top:18px;padding:10px;border:1px solid #bdd8c7;border-radius:8px}</style></head><body><h2>REKAP ABSENSI HARIAN MURID</h2><p>TK AISYIYAH BUSTANUL ATHFAL BERUA</p><p>Tanggal: ${esc(date)} · Kelompok ${esc(cls)}</p><div class="summary">Jumlah murid: ${students.length} &nbsp; | &nbsp; Hadir: ${counts.H} &nbsp; | &nbsp; Sakit: ${counts.S} &nbsp; | &nbsp; Izin: ${counts.I} &nbsp; | &nbsp; Alpa: ${counts.A}</div><table><thead><tr><th>Nama murid</th><th>Jenis kelamin</th><th>Keterangan kehadiran</th></tr></thead><tbody>${rows||'<tr><td colspan="3">Belum ada data murid.</td></tr>'}</tbody></table><p style="margin-top:28px;text-align:right">Dicetak pada ${esc(today())}</p><script>window.onload=()=>window.print()<\/script></body></html>`);
+    w.document.close();
+  };
+})();
+
+
+
+// Penyempurnaan absensi: tanggal lengkap, alasan ketidakhadiran, dan cetak PDF.
+(function(){
+  function dateID(value){ if(!value) return '—'; const d=new Date(value+'T12:00:00'); return isNaN(d)?value:d.toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'}); }
+  window.attendanceReasonChanged=function(id){
+    const status=document.querySelector(`[data-att="${id}"]`);
+    const box=document.querySelector(`[data-att-note="${id}"]`);
+    if(box){box.classList.toggle('hidden',!status||status.value==='H');}
+  };
+  attendancePage=function(){
+    const date=document.getElementById('attDate')?.value||today();
+    const c=user.role==='guru'?(user.class||'A'):(document.getElementById('attClass')?.value||selectedClass||'A');
+    const students=sortStudents(db.students.filter(st=>st.class===c));
+    const key=date+'|'+c; const vals=(db.attendance||{})[key]||{};
+    const notes=((db.attendanceNotes||{})[key])||{};
+    const parentRequests=(db.parentAbsences||[]).filter(a=>a.date===date&&a.class===c);
+    const parentRequestByChild=Object.fromEntries(parentRequests.map(a=>[a.childId,a]));
+    const rows=students.map(st=>{
+      const parentRequest=parentRequestByChild[st.id];
+      const status=parentRequest?'I':(typeof vals[st.id]==='string'?vals[st.id]:(vals[st.id]?.status||'H'));
+      const note=(parentRequest&&parentRequest.note)||notes[st.id]||vals[st.id]?.note||'';
+      return `<tr><td>${esc(st.name)}</td><td><select data-att="${st.id}" onchange="attendanceReasonChanged('${st.id}')"><option value="H" ${status==='H'?'selected':''}>H — Hadir</option><option value="S" ${status==='S'?'selected':''}>S — Sakit</option><option value="I" ${status==='I'?'selected':''}>I — Izin</option><option value="A" ${status==='A'?'selected':''}>A — Alpa</option></select></td><td><input data-att-note="${st.id}" value="${esc(note)}" placeholder="Keterangan jika tidak hadir" class="${status==='H'?'hidden':''}" maxlength="250"></td></tr>`;
+    }).join('')||'<tr><td colspan="3" class="empty">Tambahkan data murid terlebih dahulu.</td></tr>';
+    const historyRows=[];
+    Object.entries(db.attendance||{}).forEach(([attKey,attVals])=>{
+      const parts=attKey.split('|'); if(parts[1]!==c) return;
+      const attDate=parts[0], attNotes=(db.attendanceNotes||{})[attKey]||{};
+      Object.entries(attVals||{}).forEach(([studentId,raw])=>{
+        const st=db.students.find(x=>x.id===studentId); if(!st||st.class!==c) return;
+        const status=typeof raw==='string'?raw:(raw?.status||''); if(!status) return;
+        historyRows.push({date:attDate,name:st.name,studentId,status,note:attNotes[studentId]||raw?.note||''});
+      });
+    });
+    // Gabungkan pengajuan izin wali murid ke riwayat guru dan tampilkan alasan yang diberikan wali.
+    (db.parentAbsences||[]).filter(a=>a.class===c).forEach(a=>{
+      const st=db.students.find(x=>x.id===a.childId); if(!st||st.class!==c) return;
+      const existing=historyRows.find(h=>h.date===a.date&&h.studentId===st.id);
+      if(existing){existing.status='I';existing.note=a.note||existing.note;}
+      else historyRows.push({date:a.date,name:st.name,studentId:st.id,status:'I',note:a.note||''});
+    });
+    historyRows.sort((a,b)=>b.date.localeCompare(a.date)||a.name.localeCompare(b.name,'id'));
+    const historyTable=historyRows.map(a=>`<tr><td>${dateID(a.date)}</td><td>${esc(a.name)}</td><td>${esc(a.status)} — ${esc(({H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'})[a.status]||a.status)}</td><td>${esc(a.note||'—')}</td></tr>`).join('')||'<tr><td colspan="4" class="empty">Belum ada riwayat absensi tersimpan untuk kelompok ini.</td></tr>';
+    const classControl=user.role==='operator'?`<select id="attClass" onchange="selectedClass=this.value;render()"><option value="A" ${c==='A'?'selected':''}>Kelompok A</option><option value="B" ${c==='B'?'selected':''}>Kelompok B</option><option value="C" ${c==='C'?'selected':''}>Kelompok C</option></select>`:`<span class="pill">Kelompok ${esc(c)}</span>`;
+    const dateControl=`<div><label for="attDate">Tanggal / bulan / tahun absensi</label><input id="attDate" type="date" value="${esc(date)}" onchange="render()" required></div>`;
+    const dateParts=date.split('-'); const chosenMonth=Number(dateParts[1]||'1'); const chosenYear=Number(dateParts[0]||new Date().getFullYear());
+    const monthOptions=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'].map((m,i)=>`<option value="${i+1}" ${chosenMonth===i+1?'selected':''}>${m}</option>`).join('');
+    const yearOptions=Array.from({length:9},(_,i)=>chosenYear-4+i).map(y=>`<option value="${y}" ${chosenYear===y?'selected':''}>${y}</option>`).join('');
+    const periodControl=`<div><label>Bulan laporan (tanggal 1–akhir bulan)</label><div class="form-grid"><select id="attReportMonth">${monthOptions}</select><select id="attReportYear">${yearOptions}</select></div></div>`;
+    return pageHead('Absensi Murid','Catat kehadiran harian dan unduh rekap sesuai bulan Januari–Desember, tanggal 1 sampai akhir bulan.')+
+      `<div class="toolbar">${classControl}${dateControl}${periodControl}<button class="secondary" onclick="calendarVisible=!calendarVisible;render()">${calendarVisible?'Sembunyikan kalender':'Tampilkan kalender'}</button><button onclick="saveAttendance()">Simpan absensi</button><button class="secondary" onclick="downloadDailyAttendancePDF()">↓ Unduh absensi harian (PDF)</button><button class="secondary" onclick="downloadAttendanceMonthPDF()">↓ Unduh rekap bulanan (PDF)</button></div>`+
+      (calendarVisible?panel('Kalender kecil · '+dateID(date),calendarHtml(date)):'')+
+      panel('Absensi Kelompok '+esc(c)+' · '+dateID(date),`<div class="notice">Tanggal absensi: <b>${dateID(date)}</b>. Untuk status Sakit, Izin, atau Alpa, isi kolom keterangan agar alasan ketidakhadiran tercatat.</div><div class="table-wrap"><table><thead><tr><th>Nama murid</th><th>Status kehadiran</th><th>Keterangan ketidakhadiran</th></tr></thead><tbody>${rows}</tbody></table></div>`)+
+      panel('Rekap absensi bulanan',monthlyAttendance(c,date))+
+      panel('Riwayat absensi siswa · Kelompok '+esc(c),`<p class="small muted">Riwayat disusun dari tanggal terbaru dan mencantumkan tanggal, bulan, tahun, status, serta alasan/keterangan ketidakhadiran.</p><div class="table-wrap"><table><thead><tr><th>Tanggal / bulan / tahun</th><th>Nama murid</th><th>Status</th><th>Alasan / keterangan</th></tr></thead><tbody>${historyTable}</tbody></table></div>`);
+  };
+  saveAttendance=function(){
+    if(!user||!['operator','guru'].includes(user.role)){toast('Anda tidak memiliki akses untuk menyimpan absensi.');return;}
+    const date=document.getElementById('attDate')?.value||today();
+    const c=user.role==='guru'?(user.class||'A'):(document.getElementById('attClass')?.value||selectedClass||'A');
+    const key=date+'|'+c; db.attendance=db.attendance||{};db.attendanceNotes=db.attendanceNotes||{};
+    db.attendance[key]=db.attendance[key]||{};db.attendanceNotes[key]=db.attendanceNotes[key]||{};
+    document.querySelectorAll('[data-att]').forEach(el=>{
+      const id=el.dataset.att, status=el.value;
+      const note=document.querySelector(`[data-att-note="${id}"]`)?.value.trim()||'';
+      db.attendance[key][id]=status;
+      if(status==='H') delete db.attendanceNotes[key][id]; else db.attendanceNotes[key][id]=note;
+    });
+    save();render();toast('Absensi '+date+' berhasil disimpan.');
+  };
+  window.downloadDailyAttendancePDF=function(){
+    if(!user||!['operator','guru'].includes(user.role)){toast('Unduh absensi harian hanya tersedia untuk guru dan operator.');return;}
+    const date=document.getElementById('attDate')?.value||today();
+    const c=user.role==='guru'?(user.class||'A'):(document.getElementById('attClass')?.value||selectedClass||'A');
+    const students=sortStudents(db.students.filter(st=>st.class===c));
+    const key=date+'|'+c, vals=(db.attendance||{})[key]||{}, notes=((db.attendanceNotes||{})[key])||{};
+    const names={H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'},counts={H:0,S:0,I:0,A:0};
+    const rows=students.map(st=>{const v=typeof vals[st.id]==='string'?vals[st.id]:(vals[st.id]?.status||'H');counts[v]=(counts[v]||0)+1;return `<tr><td>${esc(st.name)}</td><td>${esc(st.gender||'')}</td><td>${esc(v)} — ${esc(names[v]||v)}</td><td>${esc(notes[st.id]||vals[st.id]?.note||'—')}</td></tr>`}).join('');
+    const w=window.open('','_blank');if(!w){toast('Izinkan pop-up browser untuk membuat PDF.');return;}
+    w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Rekap Absensi Harian</title><style>body{font-family:Arial,sans-serif;padding:24px;color:#173b2d}h2,p{text-align:center;margin:6px}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #9aafa4;padding:8px;text-align:left;font-size:12px}th{background:#e9f7ee}.summary{margin-top:18px;padding:10px;border:1px solid #bdd8c7;border-radius:8px;font-size:12px}</style></head><body><h2>REKAP ABSENSI HARIAN MURID</h2><p>TK AISYIYAH BUSTANUL ATHFAL BERUA</p><p>Tanggal: ${dateID(date)} · Kelompok ${esc(c)}</p><div class="summary">Jumlah murid: ${students.length} | Hadir: ${counts.H} | Sakit: ${counts.S} | Izin: ${counts.I} | Alpa: ${counts.A}</div><table><thead><tr><th>Nama murid</th><th>Jenis kelamin</th><th>Status kehadiran</th><th>Keterangan</th></tr></thead><tbody>${rows||'<tr><td colspan="4">Belum ada data murid.</td></tr>'}</tbody></table><p style="margin-top:28px;text-align:right">Dicetak: ${dateID(today())}</p><script>window.onload=()=>window.print()<\/script></body></html>`);
+    w.document.close();
+  };
+  window.downloadAttendanceMonthPDF=function(){
+    if(!user||!['operator','guru'].includes(user.role)){toast('Unduh rekap absensi tersedia untuk guru dan operator.');return;}
+    const month=Number(document.getElementById('attReportMonth')?.value||((document.getElementById('attDate')?.value||today()).slice(5,7)));
+    const year=Number(document.getElementById('attReportYear')?.value||((document.getElementById('attDate')?.value||today()).slice(0,4)));
+    const c=user.role==='guru'?(user.class||'A'):(document.getElementById('attClass')?.value||selectedClass||'A');
+    const students=sortStudents(db.students.filter(st=>st.class===c));
+    const days=new Date(year,month,0).getDate();
+    const monthName=new Date(year,month-1,1).toLocaleDateString('id-ID',{month:'long'});
+    const names={H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'}, counts={H:0,S:0,I:0,A:0};
+    let rows='';
+    for(let day=1;day<=days;day++){
+      const date=`${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+      const vals=(db.attendance||{})[date+'|'+c]||{}; const notes=((db.attendanceNotes||{})[date+'|'+c])||{};
+      students.forEach(st=>{
+        const raw=vals[st.id]; const status=typeof raw==='string'?raw:(raw?.status||'');
+        if(!status)return;
+        counts[status]=(counts[status]||0)+1;
+        rows+=`<tr><td>${dateID(date)}</td><td>${esc(st.name)}</td><td>${esc(status)} — ${esc(names[status]||status)}</td><td>${esc(notes[st.id]||raw?.note||'—')}</td></tr>`;
+      });
+    }
+    const w=window.open('','_blank');if(!w){toast('Izinkan pop-up browser untuk membuat PDF.');return;}
+    w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Rekap Absensi Bulanan</title><style>body{font-family:Arial,sans-serif;padding:24px;color:#173b2d}h2,p{text-align:center;margin:6px}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #9aafa4;padding:6px;text-align:left;font-size:11px}th{background:#e9f7ee}.summary{margin-top:16px;padding:10px;border:1px solid #bdd8c7}</style></head><body><h2>REKAP ABSENSI MURID BULANAN</h2><p>TK AISYIYAH BUSTANUL ATHFAL BERUA</p><p>Periode: 1–${days} ${monthName} ${year} · Kelompok ${esc(c)}</p><div class="summary">Jumlah murid terdaftar: ${students.length} | Hadir: ${counts.H||0} | Sakit: ${counts.S||0} | Izin: ${counts.I||0} | Alpa: ${counts.A||0}</div><table><thead><tr><th>Tanggal</th><th>Nama murid</th><th>Status</th><th>Keterangan</th></tr></thead><tbody>${rows||'<tr><td colspan="4">Belum ada catatan absensi pada periode ini.</td></tr>'}</tbody></table><p style="margin-top:24px;text-align:right">Dicetak: ${dateID(today())}</p><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();
+  };
+  window.downloadParentAttendanceMonthPDF=function(){
+    if(!user||user.role!=='wali'){toast('Fitur ini khusus wali murid.');return;}
+    const child=db.students.find(st=>st.id===user.childId);if(!child){toast('Data anak tidak ditemukan.');return;}
+    const month=Number(document.getElementById('parentReportMonth')?.value||((today()).slice(5,7)));
+    const year=Number(document.getElementById('parentReportYear')?.value||((today()).slice(0,4)));
+    const days=new Date(year,month,0).getDate(),monthName=new Date(year,month-1,1).toLocaleDateString('id-ID',{month:'long'});
+    const labels={H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'};let rows='',counts={H:0,S:0,I:0,A:0};
+    for(let day=1;day<=days;day++){const date=`${year}-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`;const key=date+'|'+child.class;const vals=(db.attendance||{})[key]||{};const raw=vals[child.id];const status=typeof raw==='string'?raw:(raw?.status||'');if(!status)continue;counts[status]=(counts[status]||0)+1;const note=((db.attendanceNotes||{})[key]||{})[child.id]||raw?.note||'—';rows+=`<tr><td>${dateID(date)}</td><td>${esc(status)} — ${esc(labels[status]||status)}</td><td>${esc(note)}</td></tr>`;}
+    const w=window.open('','_blank');if(!w){toast('Izinkan pop-up browser untuk membuat PDF.');return;}
+    w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Absensi Anak</title><style>body{font-family:Arial,sans-serif;padding:24px;color:#173b2d}h2,p{text-align:center}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #9aafa4;padding:8px;text-align:left;font-size:12px}th{background:#e9f7ee}</style></head><body><h2>REKAP ABSENSI ANAK</h2><p>TK AISYIYAH BUSTANUL ATHFAL BERUA</p><p>Nama anak: ${esc(child.name)} · Kelompok ${esc(child.class)}</p><p>Periode: 1–${days} ${monthName} ${year}</p><p>Hadir: ${counts.H||0} · Sakit: ${counts.S||0} · Izin: ${counts.I||0} · Alpa: ${counts.A||0}</p><table><thead><tr><th>Tanggal</th><th>Status</th><th>Keterangan</th></tr></thead><tbody>${rows||'<tr><td colspan="3">Belum ada catatan absensi pada periode ini.</td></tr>'}</tbody></table><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();
+  };
+  window.downloadTeacherAttendance=function(){
+    if(!user||user.role!=='operator'){toast('Unduh absensi guru hanya tersedia untuk operator.');return;}
+    const records=(db.teacherAttendance||[]).slice().sort((a,b)=>(a.date||'').localeCompare(b.date||''));
+    const rows=records.map(a=>`<tr><td>${esc(dateID(a.date))}</td><td>${esc(a.name||a.teacher||'')}</td><td>${esc(a.status||'')}</td><td>${esc(a.note||'—')}</td></tr>`).join('');
+    const w=window.open('','_blank');if(!w){toast('Izinkan pop-up browser untuk membuat PDF.');return;}
+    w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Absensi Guru</title><style>body{font-family:Arial,sans-serif;padding:24px;color:#173b2d}h2,p{text-align:center}table{width:100%;border-collapse:collapse;margin-top:22px}th,td{border:1px solid #9aafa4;padding:8px;text-align:left;font-size:12px}th{background:#e9f7ee}</style></head><body><h2>REKAP ABSENSI GURU</h2><p>TK AISYIYAH BUSTANUL ATHFAL BERUA</p><table><thead><tr><th>Tanggal</th><th>Nama guru</th><th>Status</th><th>Catatan</th></tr></thead><tbody>${rows||'<tr><td colspan="4">Belum ada data absensi guru.</td></tr>'}</tbody></table><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();
+  };
+  // Tampilkan riwayat absensi dan keterangannya hanya untuk anak milik wali yang login.
+  const _parentAttendanceWithNotes=parentPage;
+  parentPage=function(){
+    const base=_parentAttendanceWithNotes();
+    if(!user||user.role!=='wali')return base;
+    const child=db.students.find(st=>st.id===user.childId);if(!child)return base;
+    const entries=[];
+    Object.entries(db.attendance||{}).forEach(([key,vals])=>{
+      const parts=key.split('|');if(parts[1]!==child.class)return;
+      const status=typeof vals[child.id]==='string'?vals[child.id]:(vals[child.id]?.status||'');if(!status)return;
+      const notes=(db.attendanceNotes||{})[key]||{};
+      entries.push({date:parts[0],status,note:notes[child.id]||vals[child.id]?.note||''});
+    });
+    entries.sort((a,b)=>b.date.localeCompare(a.date));
+    const labels={H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'};
+    const monthNow=Number(today().slice(5,7)),yearNow=Number(today().slice(0,4));
+    const monthOptions=['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'].map((m,i)=>`<option value="${i+1}" ${monthNow===i+1?'selected':''}>${m}</option>`).join('');
+    const yearOptions=Array.from({length:9},(_,i)=>yearNow-4+i).map(y=>`<option value="${y}" ${yearNow===y?'selected':''}>${y}</option>`).join('');
+    return base+panel('Riwayat absensi anak',`<p class="small muted">Menampilkan absensi ${esc(child.name)} saja. Pilih bulan dan tahun untuk mengunduh laporan dari tanggal 1 sampai akhir bulan.</p><div class="toolbar"><select id="parentReportMonth">${monthOptions}</select><select id="parentReportYear">${yearOptions}</select><button class="secondary" onclick="downloadParentAttendanceMonthPDF()">↓ Unduh absensi anak (PDF)</button></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Status</th><th>Keterangan</th></tr></thead><tbody>${entries.map(a=>`<tr><td>${esc(dateID(a.date))}</td><td>${esc(a.status)} — ${esc(labels[a.status]||a.status)}</td><td>${esc(a.note||'—')}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Belum ada catatan absensi anak.</td></tr>'}</tbody></table></div>`);
+  };
+})();
+
+
+
+// Pembaruan: penilaian bulanan memungkinkan guru memilih beberapa mata pelajaran/domain MID dan memberi nilai masing-masing.
+(function(){
+  const _gradesPageForMonthlySubjects=gradesPage;
+  gradesPage=function(){
+    const c=teacherGroup();selectedClass=c;
+    const students=sortStudents(db.students.filter(st=>st.class===c));
+    const sid=document.getElementById('gradeStudent')?.value||students[0]?.id||'';
+    const term=document.getElementById('gradeTerm')?.value||'Bulan 1';
+    const student=students.find(st=>st.id===sid)||students[0];
+    if(!student)return pageHead('Nilai Murid','Input nilai bulanan, MID 1 dan MID 2.')+panel('Formulir penilaian','<div class="empty">Belum ada murid pada kelompok ini.</div>');
+    const rec=(db.grades[student.id]||{})[term]||{};
+    const monthly=term.startsWith('Bulan');
+    let fields='';
+    if(monthly){
+      const saved=Array.isArray(rec.subjects)?rec.subjects:[];
+      fields=`<div class="field full"><label>Pilih mata pelajaran/domain yang dinilai</label><p class="small muted">Centang satu atau beberapa mata pelajaran yang tercantum pada MID, lalu isi nilai masing-masing.</p><div class="table-wrap"><table><thead><tr><th>Pilih</th><th>Mata pelajaran / domain</th><th>Nilai (0–100)</th><th>Uraian</th></tr></thead><tbody>${domains.map((d,i)=>{const old=saved.find(x=>x.name===d)||{};return `<tr><td><input type="checkbox" name="monthCheck${i}" ${old.checked?'checked':''} aria-label="Pilih ${esc(d)}"></td><td>${esc(d)}</td><td><input name="monthScore${i}" type="number" min="0" max="100" value="${esc(old.score??'')}" style="max-width:100px"></td><td><select name="monthDesc${i}"><option value="">— Pilih —</option><option ${old.desc==='Cukup'?'selected':''}>Cukup</option><option ${old.desc==='Baik'?'selected':''}>Baik</option><option ${old.desc==='Bagus'?'selected':''}>Bagus</option></select></td></tr>`}).join('')}</tbody></table></div></div><div class="field full"><label>Catatan perkembangan bulanan</label><textarea name="narrative">${esc(rec.narrative||'')}</textarea></div>`;
+    }else{
+      fields=domains.map((d,i)=>`<div class="field full"><label>${esc(d)}</label><div class="form-grid"><div class="field"><label>Nilai angka</label><input name="score${i}" type="number" min="0" max="100" value="${esc(rec.domains?.[i]?.score||'')}"></div><div class="field"><label>Uraian perkembangan</label><textarea name="desc${i}">${esc(rec.domains?.[i]?.desc||'')}</textarea></div><div class="field"><label>Dokumen PDF (opsional)</label><input type="file" name="pdf${i}" accept="application/pdf"></div><div class="field"><label>Dokumentasi kegiatan (gambar/video)</label><input type="file" name="media${i}" accept="image/*,video/*"></div></div></div>`).join('');
+    }
+    const body=`<div class="toolbar"><label style="margin:0">Murid</label><select id="gradeStudent" onchange="render()">${students.map(st=>`<option value="${st.id}" ${st.id===student.id?'selected':''}>${esc(st.name)}</option>`).join('')}</select><label style="margin:0">Penilaian</label><select id="gradeTerm" onchange="render()">${['Bulan 1','Bulan 2','Bulan 3','MID 1','MID 2'].map(t=>`<option ${t===term?'selected':''}>${t}</option>`).join('')}</select></div><form id="gradeForm"><div class="form-grid">${fields}</div><div class="actions"><button type="submit">Simpan nilai</button><button type="button" class="secondary" onclick="approveGrade('${student.id}','${term}')">${db.approved[student.id+'|'+term]?'✓ Sudah disetujui':'Setujui & tampilkan ke wali'}</button></div></form><p class="small muted">Nilai hanya untuk murid Kelompok ${esc(c)}. Nilai yang disetujui dapat dilihat oleh wali murid terkait.</p>`;
+    return pageHead('Nilai Murid','Pilih mata pelajaran/domain MID untuk penilaian bulanan, atau isi penilaian MID 1 dan MID 2.')+(user.role==='operator'?`<div class="toolbar"><select onchange="selectedClass=this.value;render()"><option value="A" ${c==='A'?'selected':''}>Kelompok A</option><option value="B" ${c==='B'?'selected':''}>Kelompok B</option><option value="C" ${c==='C'?'selected':''}>Kelompok C</option></select></div>`:`<div class="notice">Kelompok tugas: ${esc(c)}</div>`)+panel('Formulir penilaian',body);
+  };
+  const _wirePageBeforeMonthlySubjects=wirePage;
+  wirePage=function(){
+    _wirePageBeforeMonthlySubjects();
+    const form=document.getElementById('gradeForm');
+    if(!form)return;
+    const term=document.getElementById('gradeTerm')?.value||'Bulan 1';
+    if(!term.startsWith('Bulan'))return;
+    form.onsubmit=async function(e){
+      e.preventDefault();
+      const sid=document.getElementById('gradeStudent')?.value;
+      if(!sid)return;
+      const fd=e.currentTarget,old=(db.grades[sid]||{})[term]||{},picked=[];
+      domains.forEach((name,i)=>{const check=fd.elements['monthCheck'+i];if(check?.checked){const score=fd.elements['monthScore'+i]?.value||'';const desc=fd.elements['monthDesc'+i]?.value||'';picked.push({name,checked:true,score,desc});}});
+      if(!picked.length){toast('Centang minimal satu mata pelajaran/domain sebelum menyimpan.');return;}
+      const nums=picked.map(x=>Number(x.score)).filter(x=>Number.isFinite(x)&&x>=0&&x<=100);
+      db.grades[sid]=db.grades[sid]||{};
+      db.grades[sid][term]={...old,subjects:picked,score:nums.length?Math.round(nums.reduce((a,b)=>a+b,0)/nums.length):'',desc:'',narrative:fd.elements['narrative']?.value||''};
+      save();render();toast('Nilai bulanan per mata pelajaran berhasil disimpan.');
+    };
+  };
+})();
+
+
+// Finalisasi rekap nilai: nilai mata pelajaran bulanan dan MID masuk ke satu rekap; PDF hanya memuat data nilai.
+reportPage=function(){
+  const students=sortStudents(db.students.filter(s=>user.role!=='guru'||s.class===user.class));
+  const monthTerms=['Bulan 1','Bulan 2','Bulan 3'];
+  const headers=['Nama murid','Kelompok',...monthTerms.flatMap(t=>domains.map(d=>t+' · '+d)),...domains.map(d=>'MID 1 · '+d),...domains.map(d=>'MID 2 · '+d)];
+  const rows=students.map(s=>{const g=db.grades[s.id]||{};const monthCells=monthTerms.flatMap(t=>domains.map(d=>{const subject=(g[t]?.subjects||[]).find(x=>x.name===d);return subject?.score!==undefined&&subject?.score!==''?subject.score:'—'}));const midCells=['MID 1','MID 2'].flatMap(t=>domains.map((d,i)=>{const entry=(g[t]?.domains||[]).find(x=>x.name===d)||(g[t]?.domains||[])[i];return entry?.score!==undefined&&entry?.score!==''?entry.score:'—'}));return `<tr><td>${esc(s.name)}</td><td>${esc(s.class)}</td>${[...monthCells,...midCells].map(v=>`<td>${esc(v)}</td>`).join('')}</tr>`}).join('')||`<tr><td colspan="${headers.length}" class="empty">Belum ada data nilai pada kelompok ini.</td></tr>`;
+  const exportBtn=user.role==='operator'?'<button class="secondary" onclick="sendSpreadsheet()">↗ Kirim ke Google Spreadsheet</button>':'';
+  return pageHead(user.role==='guru'?'Rekap Nilai Kelompok '+user.class:'Rekap Nilai Semua Murid','Rekap nilai per mata pelajaran untuk Bulan 1, Bulan 2, Bulan 3, MID 1, dan MID 2.','<button onclick="exportGrades()">↓ Unduh CSV</button> <button class="secondary" onclick="printGrades()">Unduh PDF / Cetak</button>')+panel('Rekap nilai lengkap',`<div class="toolbar">${exportBtn}</div><div id="gradePrint" class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div><p class="small muted">File PDF dan CSV hanya berisi rekap nilai siswa, tidak menyertakan data absensi atau data administrasi lain.</p>`)
+};
+exportGrades=function(){
+  const monthTerms=['Bulan 1','Bulan 2','Bulan 3'];
+  const headers=['Nama murid','Kelompok',...monthTerms.flatMap(t=>domains.map(d=>t+' - '+d)),...domains.map(d=>'MID 1 - '+d),...domains.map(d=>'MID 2 - '+d)];
+  const lines=[headers];
+  sortStudents(db.students.filter(s=>user&&user.role==='guru'?s.class===user.class:true)).forEach(s=>{const g=db.grades[s.id]||{};const monthly=monthTerms.flatMap(t=>domains.map(d=>{const x=(g[t]?.subjects||[]).find(v=>v.name===d);return x?.score??''}));const mid=['MID 1','MID 2'].flatMap(t=>domains.map((d,i)=>{const x=(g[t]?.domains||[]).find(v=>v.name===d)||(g[t]?.domains||[])[i];return x?.score??''}));lines.push([s.name,s.class,...monthly,...mid])});
+  download('\ufeff'+lines.map(r=>r.map(x=>'"'+String(x??'').replace(/"/g,'""')+'"').join(',')).join('\r\n'),'rekap_nilai_tk_aba.csv','text/csv;charset=utf-8');
+};
+printGrades=function(){
+  const table=document.getElementById('gradePrint')?.innerHTML||'';
+  const w=window.open('','_blank');if(!w){toast('Izinkan pop-up browser untuk membuat PDF.');return;}
+  w.document.write(`<!doctype html><html lang="id"><head><meta charset="utf-8"><title>Rekap Nilai TK ABA Berua</title><style>@page{size:A4 landscape;margin:10mm}body{font-family:Arial,sans-serif;padding:8px;color:#173b2c}h2,p{text-align:center}table{border-collapse:collapse;width:100%;table-layout:auto}th,td{border:1px solid #9aafa4;padding:5px;text-align:left;font-size:8px;overflow-wrap:anywhere}th{background:#e9f7ee}thead{display:table-header-group}tr{break-inside:avoid}.muted,.empty{color:#333}</style></head><body><h2>REKAP NILAI MURID</h2><p>TK AISYIYAH BUSTANUL ATHFAL BERUA</p>${table}<script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();
+};
+
+
+
+/* Kontak WhatsApp guru kelas dan operator yang dikelola operator. */
+(function(){
+  const oldSettingsPage = settingsPage;
+  settingsPage = function(){
+    let html = oldSettingsPage();
+    if(!user || user.role!=='operator') return html;
+    db.settings = db.settings || {};
+    const operatorPhone = db.settings.whatsappOperator || '';
+    const rows = (db.teachers||[]).map((t,i)=>`<tr><td><b>${esc(t.name)}</b></td><td>Kelompok ${esc(t.class||'A')}</td><td><input id="waTeacher_${i}" type="tel" inputmode="tel" placeholder="Contoh: 081234567890" value="${esc(t.whatsapp||'')}" aria-label="Nomor WhatsApp ${esc(t.name)}"></td><td><button class="danger" type="button" onclick="clearTeacherWhatsApp(${i})">Hapus nomor</button></td></tr>`).join('') || '<tr><td colspan="4" class="empty">Belum ada guru terdaftar.</td></tr>';
+    return html + panel('Kontak WhatsApp guru kelas dan operator',
+      `<p class="small muted">Masukkan nomor WhatsApp aktif untuk setiap guru. Nomor guru yang mengajar kelompok anak akan ditautkan pada tombol WhatsApp di portal wali murid. Jika nomor guru belum diisi, aplikasi menggunakan nomor operator (jika tersedia). Gunakan kode negara Indonesia atau nomor lokal.</p>
+      <div class="field"><label>Nomor WhatsApp operator</label><input id="waOperator" type="tel" inputmode="tel" placeholder="Contoh: 081234567890" value="${esc(operatorPhone)}"><div style="margin-top:8px"><button class="danger" type="button" onclick="clearOperatorWhatsApp()">Hapus nomor operator</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>Nama guru</th><th>Kelompok</th><th>Nomor WhatsApp</th><th>Aksi</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div style="margin-top:14px"><button type="button" onclick="saveWhatsAppContacts()">Simpan semua nomor WhatsApp</button></div>`);
+  };
+  function cleanPhone(value){let n=String(value||'').replace(/\D/g,'');if(n.startsWith('0'))n='62'+n.slice(1);else if(n.startsWith('8'))n='62'+n;return n;}
+  window.saveWhatsAppContacts=function(){
+    if(!user||user.role!=='operator'){toast('Hanya operator yang dapat mengelola nomor WhatsApp.');return;}
+    db.settings=db.settings||{};db.settings.whatsappOperator=cleanPhone(document.getElementById('waOperator')?.value||'');
+    (db.teachers||[]).forEach((t,i)=>{const el=document.getElementById('waTeacher_'+i);if(el)t.whatsapp=cleanPhone(el.value);});
+    save();render();toast('Nomor WhatsApp guru kelas dan operator berhasil disimpan.');
+  };
+  window.clearTeacherWhatsApp=function(i){
+    if(!user||user.role!=='operator')return;
+    if(!confirm('Hapus nomor WhatsApp guru ini?'))return;
+    if(db.teachers[i])db.teachers[i].whatsapp='';save();render();toast('Nomor WhatsApp guru dihapus.');
+  };
+  window.clearOperatorWhatsApp=function(){if(!user||user.role!=='operator')return;if(!confirm('Hapus nomor WhatsApp operator?'))return;db.settings=db.settings||{};db.settings.whatsappOperator='';save();render();};
+  window.openParentWhatsApp=function(){
+    if(!user||user.role!=='wali')return;
+    const child=(db.students||[]).find(s=>s.id===user.childId);if(!child){toast('Data anak tidak ditemukan.');return;}
+    const teacher=(db.teachers||[]).find(t=>(t.class||'A')===child.class && t.whatsapp);
+    const number=(teacher&&teacher.whatsapp)||db.settings?.whatsappOperator||'';
+    if(!number){toast('Nomor WhatsApp belum tersedia. Silakan hubungi operator sekolah.');return;}
+    const contactName=teacher?teacher.name:'Operator sekolah';
+    const message=`Assalamu’alaikum, saya ${user.name}, wali murid dari ${child.name} kelompok ${child.class}. Saya ingin menghubungi ${contactName}.`;
+    window.open('https://wa.me/'+cleanPhone(number)+'?text='+encodeURIComponent(message),'_blank','noopener');
+  };
+  const previousParentPage = parentPage;
+  parentPage = function(){
+    const html=previousParentPage();
+    const child=(db.students||[]).find(s=>s.id===user?.childId);
+    if(!child)return html;
+    const teacher=(db.teachers||[]).find(t=>(t.class||'A')===child.class && t.whatsapp);
+    const number=(teacher&&teacher.whatsapp)||db.settings?.whatsappOperator||'';
+    const contactLabel=teacher?'Hubungi Guru Kelompok '+esc(child.class):'Hubungi Guru / Operator';
+    const disabled=!number;
+    return html+`<a href="#" class="parent-wa-float ${disabled?'is-disabled':''}" onclick="event.preventDefault();openParentWhatsApp()" aria-label="${contactLabel}" title="${contactLabel}"><span class="parent-wa-icon">✆</span><span class="parent-wa-text">WhatsApp</span></a>`;
+  };
+})();
+
+/* Portal wali murid: ringkasan bersih dan semua fitur dipisah ke menu. */
+navItems.push(
+ ['parentAttendance','✓','Catatan Absensi',['wali']],
+ ['parentGrades','★','Nilai Disetujui',['wali']],
+ ['parentVideos','▶','Kegiatan Anak',['wali']],
+ ['parentLeave','📝','Ajukan Izin',['wali']],
+ ['parentTeacherAttendance','◷','Kehadiran Guru',['wali']]
+);
+const _buildNavParentPortal=buildNav;
+buildNav=function(){
+  const items=navItems.filter(x=>x[3].includes(user.role)&&(user.role==='operator'||user.role==='wali'||db.menusEnabled[x[0]]!==false));
+  document.getElementById('nav').innerHTML=items.map(x=>`<button class="${currentPage===x[0]?'active':''}" onclick="go('${x[0]}')"><span class="ico">${x[1]}</span>${esc(db.settings.menuNames[x[0]]||x[2])}</button>`).join('');
+};
+function parentChild(){return user&&user.role==='wali'?db.students.find(x=>x.id===user.childId):null}
+function parentWaButton(){return `<a href="#" class="parent-wa-float" onclick="event.preventDefault();openParentWhatsApp()" aria-label="Hubungi guru kelas melalui WhatsApp" title="Hubungi guru kelas melalui WhatsApp"><span class="parent-wa-icon">✆</span><span class="parent-wa-text">WhatsApp guru kelas</span></a>`}
+function parentApprovedGradeCards(child){
+ const g=db.grades[child.id]||{}; const approved=Object.keys(db.approved||{}).filter(k=>k.startsWith(child.id+'|')&&db.approved[k]);
+ return approved.map(k=>{const term=k.split('|')[1],r=g[term]||{};let detail='';
+  if(term.startsWith('Bulan')){const subs=r.subjects||[];detail=subs.length?`<div class="table-wrap"><table><thead><tr><th>Mata pelajaran</th><th>Nilai</th><th>Uraian</th></tr></thead><tbody>${subs.map(x=>`<tr><td>${esc(x.name)}</td><td>${esc(x.score||'—')}</td><td>${esc(x.desc||'—')}</td></tr>`).join('')}</tbody></table></div>`:`<p>Nilai: ${esc(r.score||'—')} · ${esc(r.desc||'')}</p>`;if(r.narrative)detail+=`<p><b>Catatan guru:</b> ${esc(r.narrative)}</p>`;
+  } else {const arr=r.domains||[];detail=arr.map((d,i)=>`<div class="video-card"><b>${esc(d.name||domains[i]||'Domain')}</b><p>Nilai: ${esc(d.score||'—')}</p><p>${esc(d.desc||'')}</p>${d.pdf?`<a href="${d.pdf}" download="dokumen-uraian.pdf">Unduh dokumen PDF</a>`:''}${d.media?`<p><a href="${d.media}" download="dokumentasi-anak">Lihat/unduh dokumentasi</a></p>`:''}</div>`).join('')||'<p class="muted small">Rincian nilai belum tersedia.</p>'}
+  return `<div class="video-card"><div class="panel-head"><b>${esc(term)}</b><span class="badge">Disetujui guru</span></div>${detail}</div>`
+ }).join('')||'<div class="empty">Belum ada nilai yang disetujui guru.</div>';
+}
+parentPage=function(){
+ const s=parentChild();if(!s)return pageHead('Ringkasan Anak','Data anak belum terhubung. Silakan hubungi operator sekolah.')+parentWaButton();
+ const att=[];Object.entries(db.attendance||{}).sort(([a],[b])=>b.localeCompare(a)).forEach(([key,vals])=>{const [date,c]=key.split('|');if(c!==s.class||!vals?.[s.id])return;const val=vals[s.id];const status=typeof val==='string'?val:(val.status||'H');const req=(db.parentAbsences||[]).find(a=>a.childId===s.id&&a.date===date);const note=req?.note||(typeof val==='object'?val.note:'')||'';att.push({date,status,note});});
+ const labels={H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'};
+ const attRows=att.slice(0,6).map(a=>`<tr><td>${esc(a.date)}</td><td>${esc(labels[a.status]||a.status)}</td><td>${esc(a.note||'—')}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Belum ada catatan absensi anak.</td></tr>';
+ return pageHead('Ringkasan Anak','Informasi utama anak Anda di TK Aisyiyah Bustanul Athfal Berua.')+
+ `<div class="cards">${stat('👧',esc(s.name),'Nama anak','#dcf8e8')}${stat('🎒','Kelompok '+esc(s.class),'Kelompok kelas','#e8e8ff')}</div>`+
+ panel('Catatan absensi kelas',`<p class="small muted">Hanya catatan absensi ${esc(s.name)} yang ditampilkan.</p><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Status</th><th>Keterangan / alasan</th></tr></thead><tbody>${attRows}</tbody></table></div><button class="secondary" onclick="go('parentAttendance')">Lihat semua absensi</button>`)+
+ panel('Nilai yang disetujui',parentApprovedGradeCards(s))+`<div class="quick-grid"><button class="quick" onclick="go('parentGrades')"><span>★</span><b>Nilai anak</b><small>Nilai yang disetujui</small></button><button class="quick" onclick="go('parentLeave')"><span>📝</span><b>Ajukan izin</b><small>Sertakan alasan</small></button><button class="quick" onclick="go('parentVideos')"><span>▶</span><b>Kegiatan anak</b><small>Unggah video dari rumah</small></button></div>`+parentWaButton();
+};
+function parentAttendancePage(){const s=parentChild();if(!s)return pageHead('Catatan Absensi','Data anak tidak ditemukan.');const ym=document.getElementById('parentMonth')?.value||today().slice(0,7);const labels={H:'Hadir',S:'Sakit',I:'Izin',A:'Alpa'};let entries=[];Object.entries(db.attendance||{}).forEach(([key,vals])=>{const [date,c]=key.split('|');if(c!==s.class||!date.startsWith(ym)||!vals?.[s.id])return;const val=vals[s.id],status=typeof val==='string'?val:(val.status||'H');const req=(db.parentAbsences||[]).find(a=>a.childId===s.id&&a.date===date);entries.push({date,status,note:req?.note||(typeof val==='object'?val.note:'')||''})});entries.sort((a,b)=>a.date.localeCompare(b.date));const rows=entries.map(a=>`<tr><td>${esc(a.date)}</td><td>${esc(labels[a.status]||a.status)}</td><td>${esc(a.note||'—')}</td></tr>`).join('')||'<tr><td colspan="3" class="empty">Belum ada absensi pada bulan ini.</td></tr>';return pageHead('Catatan Absensi Anak','Riwayat absensi dan keterangan khusus anak Anda.')+panel('Riwayat absensi',`<div class="toolbar"><label for="parentMonth" style="margin:0">Bulan</label><input id="parentMonth" type="month" value="${esc(ym)}" onchange="render()"><button class="secondary" onclick="downloadAttendance('${s.class}',document.getElementById('parentMonth').value,'${s.id}')">Unduh CSV</button><button onclick="downloadParentAttendanceMonthPDF()">Unduh PDF</button></div><div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Status</th><th>Keterangan / alasan</th></tr></thead><tbody>${rows}</tbody></table></div>`)+parentWaButton()}
+function parentGradesPage(){const s=parentChild();return pageHead('Nilai Disetujui','Hanya nilai yang telah disetujui guru dapat dilihat di sini.')+(s?panel('Nilai dan perkembangan '+esc(s.name),parentApprovedGradeCards(s)):'<div class="empty">Data anak tidak ditemukan.</div>')+parentWaButton()}
+function parentVideosPage(){const s=parentChild();if(!s)return pageHead('Kegiatan Anak','Data anak tidak ditemukan.');const own=(db.videos||[]).filter(v=>v.child===s.name&&(v.parent===user.name||v.parent===s.guardian||v.parent===s.father||v.parent===s.mother)).slice().reverse();const cards=own.map(v=>`<div class="video-card"><b>${esc(v.title||'Kegiatan anak')}</b><p class="small muted">${esc(v.date||'')} · ${esc(v.child)}</p>${v.data?`<video controls src="${v.data}"></video>`:v.url?`<a href="${esc(v.url)}" target="_blank" rel="noopener">Buka video</a>`:''}<p>${esc(v.note||'')}</p></div>`).join('')||'<div class="empty">Belum ada kegiatan yang diunggah untuk anak Anda.</div>';return pageHead('Kegiatan Anak di Rumah','Unggah dokumentasi anak untuk dilihat guru kelas.')+panel('Unggah kegiatan anak',`<form id="videoForm"><div class="form-grid"><div class="field"><label>Judul kegiatan</label><input name="title" required placeholder="Contoh: Membaca buku bersama"></div><div class="field"><label>File video (maks. 5 MB)</label><input name="file" type="file" accept="video/*"></div><div class="field full"><label>Atau tautan video</label><input name="url" type="url" placeholder="https://..."></div><div class="field full"><label>Cerita singkat</label><textarea name="note" rows="3"></textarea></div></div><button>Kirim kegiatan ke guru</button></form>`)+panel('Riwayat unggahan anak',cards)+parentWaButton()}
+function parentLeavePage(){const s=parentChild();if(!s)return pageHead('Ajukan Izin','Data anak tidak ditemukan.');const reqs=(db.parentAbsences||[]).filter(a=>a.childId===s.id).sort((a,b)=>(b.date||'').localeCompare(a.date||''));const rows=reqs.map(a=>`<tr><td>${esc(a.date)}</td><td>${esc(a.note)}</td><td><span class="badge">${esc(a.status||'Izin')}</span></td></tr>`).join('')||'<tr><td colspan="3" class="empty">Belum ada pengajuan izin.</td></tr>';return pageHead('Ajukan Izin','Isi tanggal dan alasan ketidakhadiran anak.')+panel('Formulir izin',`<div class="notice">Setelah izin disimpan, aplikasi akan membuka WhatsApp dengan pesan pemberitahuan untuk guru kelompok. Periksa pesannya lalu tekan <b>Kirim</b> di WhatsApp. Pengiriman otomatis tanpa tindakan pengguna memerlukan WhatsApp Business API dan server.</div><form id="parentAbsenceForm"><div class="form-grid"><div class="field"><label>Tanggal izin</label><input type="date" name="date" min="${today()}" value="${today()}" required></div><div class="field"><label>Alasan / keterangan</label><input name="note" maxlength="250" placeholder="Contoh: anak kurang sehat" required></div></div><button>Kirim izin &amp; buka WhatsApp</button></form>`)+panel('Riwayat pengajuan izin',`<div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Alasan</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></div>`)+parentWaButton()}
+function parentTeacherAttendancePage(){const rows=(db.teacherAttendance||[]).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(a=>`<tr><td>${esc(a.date||'')}</td><td>${esc(a.name||a.teacher||'')}</td><td>${esc(a.status||'')}</td><td>${esc(a.note||'')}</td></tr>`).join('')||'<tr><td colspan="4" class="empty">Belum ada catatan kehadiran guru.</td></tr>';return pageHead('Kehadiran Guru','Informasi kehadiran guru yang dicatat sekolah.')+panel('Ringkasan kehadiran guru',`<div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Nama guru</th><th>Status</th><th>Catatan</th></tr></thead><tbody>${rows}</tbody></table></div>`)+parentWaButton()}
+const _renderParentPortal=render;
+render=function(){if(!user)return;const pages={dashboard:dashboardPage,students:studentsPage,attendance:attendancePage,grades:gradesPage,report:reportPage,teacherAttendance:teacherAttendancePage,journal:journalPage,videos:videosPage,teachers:teachersPage,settings:settingsPage,parent:parentPage,parentAttendance:parentAttendancePage,parentGrades:parentGradesPage,parentVideos:parentVideosPage,parentLeave:parentLeavePage,parentTeacherAttendance:parentTeacherAttendancePage};document.getElementById('main').innerHTML=(pages[currentPage]||dashboardPage)();wirePage();};
+
+
+/* Foto profil murid: hanya wali murid yang sedang login dapat mengubah foto anaknya. */
+const _parentPageWithPhoto = parentPage;
+parentPage = function(){
+  // Ringkasan anak hanya menampilkan nama, kelompok, catatan absensi, dan nilai yang disetujui.
+  // Pengelolaan foto profil tersedia secara terpisah di menu Pengaturan Foto Profil.
+  return _parentPageWithPhoto();
+};
+window.removeChildPhoto = function(){
+  const child = parentChild(); if(!child) return;
+  if(!confirm('Hapus foto profil anak ini?')) return;
+  child.photo=''; save(); render(); toast('Foto profil anak dihapus.');
+};
+const _wirePageWithPhoto = wirePage;
+wirePage = function(){
+  _wirePageWithPhoto();
+  const form = document.getElementById('childPhotoForm');
+  if(form) form.onsubmit = async function(e){
+    e.preventDefault();
+    const child = parentChild(); const file = form.photo.files[0];
+    if(!child || !file) { toast('Pilih foto terlebih dahulu.'); return; }
+    if(!/^image\/(jpeg|png|webp)$/.test(file.type)){ toast('Gunakan file JPG, PNG, atau WEBP.'); return; }
+    try { child.photo = await fileData(file); save(); render(); toast('Foto profil anak berhasil disimpan.'); }
+    catch(err){ toast(err.message || 'Foto gagal disimpan.'); }
+  };
+};
+
+
+
+/* Revisi: pengelolaan foto profil dipisahkan ke menu khusus wali murid. */
+if (!navItems.some(item => item[0] === 'parentPhotoSettings')) {
+  navItems.push(['parentPhotoSettings','📷','Pengaturan Foto Profil',['wali']]);
+}
+const _parentPagePhotoSettingsSplit = parentPage;
+parentPage = function(){
+  const html = _parentPagePhotoSettingsSplit();
+  const child = parentChild();
+  if (!child) return html;
+  const photo = child.photo || '';
+  const view = `<section class="panel"><div class="panel-head"><h3>Foto Profil Anak</h3><span class="pill">${esc(child.name)}</span></div><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="width:88px;height:88px;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#e2f6e9,#eef0ff);border:2px solid #dcebe3;display:grid;place-items:center;flex-shrink:0">${photo?`<img src="${photo}" alt="Foto ${esc(child.name)}" style="width:100%;height:100%;object-fit:cover">`:'<span style="font-size:36px">👧</span>'}</div><div style="flex:1;min-width:180px"><b>${esc(child.name)}</b><p class="small muted">Kelompok ${esc(child.class)} · Untuk mengubah foto, buka menu Pengaturan Foto Profil.</p><button class="secondary" type="button" onclick="go('parentPhotoSettings')">Pengaturan Foto Profil</button></div></div></section>`;
+  return html; // Foto profil tidak ditampilkan di halaman utama portal wali murid.
+};
+function parentPhotoSettingsPage(){
+  const child=parentChild();
+  if(!child) return pageHead('Pengaturan Foto Profil','Data anak belum terhubung dengan akun ini.');
+  const photo=child.photo||'';
+  return pageHead('Pengaturan Foto Profil','Ubah atau hapus foto profil anak Anda. Perubahan hanya berlaku pada anak yang terhubung dengan akun ini.')+
+    panel('Foto profil '+esc(child.name),`<div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:16px"><div style="width:124px;height:124px;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,#e2f6e9,#eef0ff);border:2px solid #dcebe3;display:grid;place-items:center;flex-shrink:0">${photo?`<img src="${photo}" alt="Foto ${esc(child.name)}" style="width:100%;height:100%;object-fit:cover">`:'<span style="font-size:48px">👧</span>'}</div><div><b>${esc(child.name)}</b><p class="small muted">Format JPG, PNG, atau WEBP. Ukuran maksimal 5 MB.</p></div></div><form id="childPhotoSettingsForm"><div class="field"><label for="childPhotoFile">Pilih foto baru</label><input id="childPhotoFile" type="file" name="photo" accept="image/jpeg,image/png,image/webp" required></div><div class="actions"><button type="submit">Simpan foto profil</button>${photo?'<button type="button" class="danger" onclick="removeChildPhotoFromSettings()">Hapus foto profil</button>':''}<button type="button" class="secondary" onclick="go(\'parent\')">Kembali ke halaman utama</button></div></form>`);
+}
+window.removeChildPhotoFromSettings=function(){
+  const child=parentChild(); if(!child)return;
+  if(!confirm('Hapus foto profil anak ini?'))return;
+  child.photo=''; save(); render(); toast('Foto profil anak dihapus.');
+};
+const _renderBeforePhotoSettings = render;
+render = function(){
+  if(!user)return;
+  if(user.role==='wali' && currentPage==='parentPhotoSettings'){
+    document.getElementById('main').innerHTML=parentPhotoSettingsPage();
+    wirePage();
+    const form=document.getElementById('childPhotoSettingsForm');
+    if(form)form.onsubmit=async function(e){
+      e.preventDefault(); const child=parentChild(); const file=form.photo.files[0];
+      if(!child||!file){toast('Pilih foto terlebih dahulu.');return;}
+      if(!/^image\/(jpeg|png|webp)$/.test(file.type)){toast('Gunakan file JPG, PNG, atau WEBP.');return;}
+      try{child.photo=await fileData(file);save();render();toast('Foto profil anak berhasil disimpan.');}
+      catch(err){toast(err.message||'Foto gagal disimpan.');}
+    };
+    return;
+  }
+  _renderBeforePhotoSettings();
+};
+
+
+/* Pembatasan unggahan kegiatan: satu kali per hari per anak/wali, dengan pengingat berjalan. */
+const _parentVideosDailyLimitBase = parentVideosPage;
+parentVideosPage = function(){
+  const child = parentChild();
+  const already = !!child && (db.videos||[]).some(v => v.date === today() && v.child === child.name && (v.parent === user.name || v.parent === child.guardian || v.parent === child.father || v.parent === child.mother));
+  let html = _parentVideosDailyLimitBase();
+  const marquee = `<div style="overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,#e4f8ec,#f0f4ff,#fff4dc);border:1px solid #dcebe3;border-radius:12px;padding:12px;margin-bottom:14px;color:#155b40;font-weight:800"><span style="display:inline-block;min-width:100%;animation:schoolMarquee 18s linear infinite">Posting Kegiatan Harian Ananda Dirumah, dan mendapatkan nilai dari sekolah. &nbsp; ✦ &nbsp; Setiap wali murid dibatasi satu posting kegiatan per hari.</span></div>`;
+  const notice = already ? `<div class="notice">Batas posting hari ini sudah digunakan. Silakan unggah kegiatan berikutnya besok.</div>` : `<div class="notice">Batas posting: maksimal <b>1 kegiatan per hari</b>. Setelah mengirim, menu unggah akan dibatasi sampai hari berikutnya.</div>`;
+  html = html.replace('<div class="page-head">', marquee + '<div class="page-head">');
+  html = html.replace('<form id="videoForm">', notice + `<form id="videoForm" ${already?'data-daily-locked="true"':''}>`);
+  if(already) html = html.replace('<button>Kirim kegiatan ke guru</button>', '<button disabled style="opacity:.55;cursor:not-allowed">Batas posting hari ini tercapai</button>');
+  return html;
+};
+if(!document.getElementById('schoolMarqueeStyle')){const st=document.createElement('style');st.id='schoolMarqueeStyle';st.textContent='@keyframes schoolMarquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}';document.head.appendChild(st);}
+const _wireCommonDailyLimitBase = wireCommon;
+wireCommon = function(){
+  _wireCommonDailyLimitBase();
+  const vf = document.getElementById('videoForm');
+  if(vf) vf.onsubmit = async function(e){
+    e.preventDefault();
+    const f=e.target;
+    const s=parentChild();
+    if(!s){toast('Data anak tidak ditemukan.');return;}
+    if((db.videos||[]).some(v=>v.date===today()&&v.child===s.name&&(v.parent===user.name||v.parent===s.guardian||v.parent===s.father||v.parent===s.mother))){toast('Batas posting hari ini sudah tercapai. Coba lagi besok.');render();return;}
+    const file=f.file.files[0];let data='';
+    try{
+      if(file){if(!file.type.startsWith('video/')){toast('File harus berupa video.');return;}data=await fileData(file);}
+      if(!file&&!f.url.value){toast('Pilih video atau masukkan tautan.');return;}
+      db.videos.push({child:s.name,parent:user.name,title:f.title.value,note:f.note.value,date:today(),data,url:f.url.value});
+      save();render();toast('Kegiatan berhasil dikirim kepada guru. Batas posting hari ini sudah digunakan.');
+    }catch(err){toast(err.message||'Video gagal diunggah.');}
+  };
+};
+
+
+/* Foto profil hanya tampil di bagian atas menu portal wali murid, bukan di halaman utama. */
+const _buildNavWithParentAvatar = buildNav;
+buildNav = function(){
+  _buildNavWithParentAvatar();
+  const nav = document.getElementById('nav');
+  if(!nav || !user || user.role !== 'wali') return;
+  const child = parentChild();
+  if(!child) return;
+  const avatar = `<div class="parent-menu-profile" style="display:flex;align-items:center;gap:10px;padding:12px;margin:0 0 10px;border-radius:14px;background:linear-gradient(120deg,#e7f8ee,#f1f3ff);border:1px solid #dcebe3"><div style="width:44px;height:44px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#d9efe2;flex-shrink:0">${child.photo?`<img src="${child.photo}" alt="Foto ${esc(child.name)}" style="width:100%;height:100%;object-fit:cover">`:'<span style="font-size:24px">👧</span>'}</div><div style="min-width:0"><div style="font-weight:800;font-size:13px;line-height:1.3">${esc(child.name)}</div><div style="font-size:11px;color:#47725c">Kelompok ${esc(child.class)}</div></div></div>`;
+  nav.insertAdjacentHTML('afterbegin', avatar);
+};
+
+
+
+/* Pembaruan: guru dapat membuka dan mengubah nilai langsung dari Rekap Nilai. */
+function editGradeFromRecap(studentId, term){
+  if(!user || !['guru','operator'].includes(user.role)){toast('Akses tidak diizinkan.');return;}
+  const student=(db.students||[]).find(x=>x.id===studentId);
+  if(!student){toast('Data murid tidak ditemukan.');return;}
+  if(user.role==='guru' && String(student.class)!==String(teacherGroup())){toast('Guru hanya dapat mengubah nilai murid pada kelompok tugasnya.');return;}
+  selectedClass=student.class;
+  currentPage='grades';
+  buildNav();
+  render();
+  const studentSelect=document.getElementById('gradeStudent');
+  const termSelect=document.getElementById('gradeTerm');
+  if(studentSelect) studentSelect.value=studentId;
+  if(termSelect) termSelect.value=term;
+  render();
+  toast('Nilai '+term+' untuk '+student.name+' siap diedit. Ubah lalu tekan Simpan nilai.');
+}
+reportPage=function(){
+  const students=sortStudents(db.students.filter(s=>user.role!=='guru'||String(s.class)===String(teacherGroup())));
+  const monthTerms=['Bulan 1','Bulan 2','Bulan 3'];
+  const headers=['Nama murid','Kelompok',...monthTerms.flatMap(t=>domains.map(d=>t+' · '+d)),...domains.map(d=>'MID 1 · '+d),...domains.map(d=>'MID 2 · '+d)];
+  const editCell=(student,term,domain,isMonthly)=>{
+    const grade=(db.grades[student.id]||{})[term]||{};
+    let value='';
+    if(isMonthly){const item=(grade.subjects||[]).find(x=>x.name===domain);value=item?.score??'';}
+    else {const item=(grade.domains||[]).find(x=>x.name===domain)||(grade.domains||[])[domains.indexOf(domain)];value=item?.score??'';}
+    const display=value!==''?esc(value):'—';
+    return `<td><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span>${display}</span><button type="button" class="secondary" style="padding:5px 8px;font-size:11px" onclick="editGradeFromRecap('${String(student.id).replace(/'/g,"\\'")}','${term}')" title="Edit nilai ${esc(domain)}">✎ Edit</button></div></td>`;
+  };
+  const rows=students.map(st=>{
+    const cells=monthTerms.flatMap(t=>domains.map(d=>editCell(st,t,d,true)));
+    const mid=['MID 1','MID 2'].flatMap(t=>domains.map(d=>editCell(st,t,d,false)));
+    return `<tr><td>${esc(st.name)}</td><td>${esc(st.class)}</td>${[...cells,...mid].join('')}</tr>`;
+  }).join('')||`<tr><td colspan="${headers.length}" class="empty">Belum ada data nilai pada kelompok ini.</td></tr>`;
+  const exportBtn=user.role==='operator'?'<button class="secondary" onclick="sendSpreadsheet()">↗ Kirim ke Google Spreadsheet</button>':'';
+  return pageHead(user.role==='guru'?'Rekap Nilai Kelompok '+teacherGroup():'Rekap Nilai Semua Murid','Nilai dapat diedit melalui tombol Edit pada setiap kolom. Setelah membuka formulir, tekan Simpan nilai.','<button onclick="exportGrades()">↓ Unduh CSV</button> <button class="secondary" onclick="printGrades()">Unduh PDF / Cetak</button>')+panel('Rekap nilai lengkap',`<div class="toolbar">${exportBtn}<span class="small muted">Pilih Edit pada nilai yang ingin diperbarui.</span></div><div id="gradePrint" class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table></div><p class="small muted">File PDF dan CSV hanya berisi rekap nilai siswa. Tombol Edit membuka formulir penilaian untuk murid dan periode yang dipilih.</p>`);
+};
+
+
+
+/* Foto profil guru dan operator: tampil di bagian atas navigasi, bukan dashboard utama. */
+if(!navItems.some(item=>item[0]==='myProfile')) navItems.push(['myProfile','◉','Profil Saya',['operator','guru']]);
+function currentProfileRecord(){
+  if(!user)return null;
+  if(user.role==='operator')return {name:'Operator',photo:db.operatorPhoto||'',role:'operator'};
+  if(user.role==='guru')return db.teachers.find(t=>String(t.name).toLowerCase()===String(user.name).toLowerCase())||null;
+  return null;
+}
+function myProfilePage(){
+  const rec=currentProfileRecord();
+  if(!rec)return pageHead('Profil Saya','Data profil tidak ditemukan.');
+  const photo=rec.photo||'';
+  return pageHead('Profil Saya','Kelola foto profil akun Anda. Foto hanya ditampilkan di bagian atas menu navigasi.')+
+    panel('Foto profil '+esc(rec.name),`<div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:18px"><div style="width:104px;height:104px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,#dff6e8,#eef0ff);border:2px solid #dcebe3;display:grid;place-items:center;flex-shrink:0">${photo?`<img src="${photo}" alt="Foto profil" style="width:100%;height:100%;object-fit:cover">`:'<span style="font-size:42px">'+(user.role==='operator'?'⚙':'👩&zwj;🏫')+'</span>'}</div><div><b>${esc(rec.name)}</b><p class="small muted">${user.role==='operator'?'Operator aplikasi':'Guru · Kelompok '+esc(rec.class||user.class||'A')}</p><p class="small muted">Format JPG, PNG, WEBP; ukuran maksimal 5 MB.</p></div></div><form id="myProfileForm"><div class="field"><label for="myProfileFile">Pilih foto profil</label><input id="myProfileFile" name="photo" type="file" accept="image/jpeg,image/png,image/webp" required></div><div class="actions"><button type="submit">Simpan foto profil</button>${photo?'<button type="button" class="danger" onclick="removeMyProfilePhoto()">Hapus foto profil</button>':''}</div></form>`);
+}
+window.removeMyProfilePhoto=function(){
+  if(!user||!['operator','guru'].includes(user.role)){toast('Akses tidak diizinkan.');return;}
+  if(!confirm('Hapus foto profil akun ini?'))return;
+  if(user.role==='operator')db.operatorPhoto='';else{const rec=currentProfileRecord();if(rec)rec.photo='';}
+  save();render();toast('Foto profil berhasil dihapus.');
+};
+const _buildNavWithStaffProfile=buildNav;
+buildNav=function(){
+  _buildNavWithStaffProfile();
+  const nav=document.getElementById('nav');
+  if(!nav||!user||!['operator','guru'].includes(user.role))return;
+  const rec=currentProfileRecord();if(!rec)return;
+  const photo=rec.photo||'';
+  const avatar=`<div class="staff-menu-profile" style="display:flex;align-items:center;gap:10px;padding:12px;margin:0 0 10px;border-radius:14px;background:linear-gradient(120deg,#e7f8ee,#f1f3ff);border:1px solid #dcebe3"><div style="width:44px;height:44px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#d9efe2;flex-shrink:0">${photo?`<img src="${photo}" alt="Foto profil ${esc(rec.name)}" style="width:100%;height:100%;object-fit:cover">`:`<span style="font-size:23px">${user.role==='operator'?'⚙':'👩&zwj;🏫'}</span>`}</div><div style="min-width:0"><div style="font-weight:800;font-size:13px;line-height:1.3">${esc(rec.name||user.name)}</div><div style="font-size:11px;color:#47725c">${user.role==='operator'?'Operator':'Guru · Kelompok '+esc(rec.class||user.class||'A')}</div></div></div>`;
+  nav.insertAdjacentHTML('afterbegin',avatar);
+};
+const _renderBeforeStaffProfile=render;
+render=function(){
+  if(user&&['operator','guru'].includes(user.role)&&currentPage==='myProfile'){
+    document.getElementById('main').innerHTML=myProfilePage();
+    const form=document.getElementById('myProfileForm');
+    if(form)form.onsubmit=async function(e){
+      e.preventDefault();const file=form.photo.files[0];
+      if(!file){toast('Pilih foto terlebih dahulu.');return;}
+      if(!/^image\/(jpeg|png|webp)$/.test(file.type)){toast('Gunakan gambar JPG, PNG, atau WEBP.');return;}
+      try{const data=await fileData(file);if(user.role==='operator')db.operatorPhoto=data;else{const rec=currentProfileRecord();if(!rec){toast('Profil guru tidak ditemukan.');return;}rec.photo=data;}save();buildNav();render();toast('Foto profil berhasil disimpan.');}
+      catch(err){toast(err.message||'Foto gagal disimpan.');}
+    };
+    return;
+  }
+  _renderBeforeStaffProfile();
+};
+
+</script>
+</body></html>
